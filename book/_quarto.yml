@@ -1,0 +1,63 @@
+project:
+  type: book
+  output-dir: ../docs
+
+book:
+  cover-image: logo_new.png
+  title: "Introducción a la Programación en Python"
+  description: | 
+    Introducción a la Programación usando el lenguaje Python.
+  author:
+  - name: "Noel Moreno Lemus, Ph.D."
+    url: https://www.linkedin.com/in/nmlemus/
+    affiliation: Aiuda Academy
+    affiliation-url: https://www.linkedin.com/in/nmlemus/
+  page-navigation: true
+  search: true
+  favicon: logo_new.png
+  twitter-card: true
+  repo-url: https://github.com/aiudacademy/ip_python/
+  repo-actions: [edit]
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
+  chapters:
+    - index.qmd
+    - part: "Introducción a la Programación"
+      chapters:
+        - intro/intro.qmd
+    - conclusions.qmd
+
+highlight-style: pygments
+
+comments:
+  hypothesis: true
+
+page-footer:
+  right: "This page is built with [Aiuda Academy](https://quarto.org/)."
+  left: "&copy; CC-1.0"
+
+#bibliography: ref_appendices/references.bib
+
+execute:
+    echo: false
+
+format:
+  epub:
+    epub-cover-image: logo_new.png
+  html:
+    theme: cosmo
+    code-fold: true
+  pdf:
+    documentclass: scrbook
+    papersize: letter
+    colorlinks: true
+    include-in-header: 
+      text: |
+        \usepackage{makeidx}
+        \makeindex
+    include-after-body: 
+      text: |
+        \printindex
+
+
+
