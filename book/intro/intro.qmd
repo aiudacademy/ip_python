@@ -1,5 +1,6 @@
-# Unsupervised Learning
+# Introducción a la Programación
 
-## Clustering
-## Dimensionality Reduction
-## Anomaly Detection
+## Definición de programación
+## Por qué aprender a programar
+## Introducción a Python y su historia
+## Instalación y Configuración del Ambiente de Desarrollo

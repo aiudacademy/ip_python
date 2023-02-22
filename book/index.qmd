@@ -1,5 +1,10 @@
 # Introduction {.unnumbered}
 
+Introducción a la Programación con Python es un libro diseñado para aquellas personas que desean iniciarse en el mundo de la programación desde cero. En este libro te guiaremos a través de los conceptos básicos de la programación y te mostraremos cómo aplicarlos para crear programas simples y útiles. Ya sea que estés interesado en la programación por diversión, para desarrollar habilidades profesionales o simplemente para comprender mejor la tecnología que te rodea, este libro es un excelente punto de partida.
+
+Hemos elegido Python como lenguaje para desarrollar los ejemplos del libro debido a su sintaxis clara y legible, amplia comunidad y recursos, versatilidad, enfoque en la eficiencia y facilidad de instalación y configuración. Además, Python es un lenguaje popular y en constante crecimiento, lo que significa que los estudiantes que aprenden Python tendrán habilidades que son valiosas en una amplia variedad de campos y carreras, como Inteligencia Artificial, Machine Learning o Ciencia de Datos.
+
+
 ::: {.callout-caution}
 ## Work in Progress
 This is a Work in Progress project. The idea is to summarize all ML topics and how I see and understand them.

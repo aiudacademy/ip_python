@@ -5,8 +5,6 @@ project:
 book:
   cover-image: logo_new.png
   title: "Introducción a la Programación en Python"
-  description: | 
-    Introducción a la Programación usando el lenguaje Python.
   author:
   - name: "Noel Moreno Lemus, Ph.D."
     url: https://www.linkedin.com/in/nmlemus/
