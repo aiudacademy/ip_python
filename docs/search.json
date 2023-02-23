@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Introducción a la Programación en Python",
+    "title": "Introducción a la Programación",
     "section": "",
-    "text": "Introducción a la Programación con Python es un libro diseñado para aquellas personas que desean iniciarse en el mundo de la programación desde cero. En este libro te guiaremos a través de los conceptos básicos de la programación y te mostraremos cómo aplicarlos para crear programas simples y útiles. Ya sea que estés interesado en la programación por diversión, para desarrollar habilidades profesionales o simplemente para comprender mejor la tecnología que te rodea, este libro es un excelente punto de partida.\nHemos elegido Python como lenguaje para desarrollar los ejemplos del libro debido a su sintaxis clara y legible, amplia comunidad y recursos, versatilidad, enfoque en la eficiencia y facilidad de instalación y configuración. Además, Python es un lenguaje popular y en constante crecimiento, lo que significa que los estudiantes que aprenden Python tendrán habilidades que son valiosas en una amplia variedad de campos y carreras, como Inteligencia Artificial, Machine Learning o Ciencia de Datos.\nMachine learning is a rapidly growing field that enables computers to learn from data, without being explicitly programmed. The goal of machine learning is to build models that can make predictions or take actions based on input data, and improve their performance over time through experience."
+    "text": "Introducción a la Programación con Python es un libro diseñado para aquellas personas que desean iniciarse en el mundo de la programación desde cero. En este libro te guiaremos a través de los conceptos básicos de la programación y te mostraremos cómo aplicarlos para crear programas simples y útiles."
   },
   {
     "objectID": "index.html#overview-of-machine-learning",
@@ -32,7 +32,7 @@
     "href": "index.html#versions-used-in-this-book",
     "title": "Introducción a la Programación en Python",
     "section": "Versions Used in this Book",
-    "text": "Versions Used in this Book\n\n\nCode\nimport sys\nprint(\"Python version: {}\".format(sys.version))\nimport pandas as pd\nprint(\"pandas version: {}\".format(pd.__version__))\nimport matplotlib\nprint(\"matplotlib version: {}\".format(matplotlib.__version__))\nimport numpy as np\nprint(\"NumPy version: {}\".format(np.__version__))\nimport scipy as sp\nprint(\"SciPy version: {}\".format(sp.__version__))\nimport IPython\nprint(\"IPython version: {}\".format(IPython.__version__))\nimport sklearn\nprint(\"scikit-learn version: {}\".format(sklearn.__version__))\n\n\nPython version: 3.9.13 (main, Aug 25 2022, 23:26:10) \n[GCC 11.2.0]\npandas version: 1.5.3\nmatplotlib version: 3.6.3\nNumPy version: 1.23.5\nSciPy version: 1.10.0\nIPython version: 8.9.0\n\n\nscikit-learn version: 1.2.1"
+    "text": "Versions Used in this Book\n\n\nCódigo\nimport sys\nprint(\"Python version: {}\".format(sys.version))\nimport pandas as pd\nprint(\"pandas version: {}\".format(pd.__version__))\nimport matplotlib\nprint(\"matplotlib version: {}\".format(matplotlib.__version__))\nimport numpy as np\nprint(\"NumPy version: {}\".format(np.__version__))\nimport scipy as sp\nprint(\"SciPy version: {}\".format(sp.__version__))\nimport IPython\nprint(\"IPython version: {}\".format(IPython.__version__))\nimport sklearn\nprint(\"scikit-learn version: {}\".format(sklearn.__version__))\n\n\nPython version: 3.9.13 (main, Aug 25 2022, 23:26:10) \n[GCC 11.2.0]\npandas version: 1.5.3\nmatplotlib version: 3.6.3\nNumPy version: 1.23.5\nSciPy version: 1.10.0\nIPython version: 8.9.0\nscikit-learn version: 1.2.1"
   },
   {
     "objectID": "intro/intro.html#definición-de-programación",
@@ -68,5 +68,47 @@
     "title": "2  Conclusion",
     "section": "",
     "text": "In summary, this book has no content whatsoever."
+  },
+  {
+    "objectID": "index.html#por-que-aprender-a-programar",
+    "href": "index.html#por-que-aprender-a-programar",
+    "title": "Introducción a la Programación",
+    "section": "¿Por que aprender a programar?",
+    "text": "¿Por que aprender a programar?\nSi quieres entender al menos un poco el mundo que te rodea es importante tener conocimientos básicos de matemáticas, física, química y biología. A esta lista ahora se suman las ciencias de la computación pues vivimos en un mundo cada vez más domidado por la tecnología, y tenemos dos opciones:\n\nla usamos para nuestro veneficio\nla tecnología nos usa a nosotros\n\nEs por eso que, aunque solo sea con la finalidad de entender como funciona nuestro mundo, es importante tener nociones de ciencias de la computación en general y de programación en particular.\nDicho esto, hablemos un poco de la estructura de este libro y del lenguaje de programación que hemos elejido para escribir los códigos de los ejemplos del mismo."
+  },
+  {
+    "objectID": "index.html#por-qué-python",
+    "href": "index.html#por-qué-python",
+    "title": "Introducción a la Programación",
+    "section": "¿Por qué Python?",
+    "text": "¿Por qué Python?\nPython es un lenguaje fácil de aprender y de usar, tiene una sintaxis clara y legible, amplia comunidad y recursos, versatilidad, enfoque en la eficiencia y facilidad de instalación y configuración. Además y gracias su uso extensivo en Inteligencia Artificial, Machine Learning y Ciencia de Datos; se ha convertido en uno de los lenguajes más usados en el mundo y de los más demandados por las empresas. Podríamos decir que si sabes Python nunca te faltaran las oportunidades de trabajo.\n\n\n\nPython ha ido ganando popularidad en los últimos años (no ha parado de crecer desde el 2018), llegando a desplazar en los últimos meses a lenguajes como Java y C.\n\n\n\n\n\n\n\n\nWork in Progress\n\n\n\nThis is a Work in Progress project. The idea is to summarize all ML topics and how I see and understand them.\n\n\nMachine learning is a rapidly growing field that enables computers to learn from data, without being explicitly programmed. The goal of machine learning is to build models that can make predictions or take actions based on input data, and improve their performance over time through experience.\n\n\n\n\n\n\nNota\n\n\n\nNote that there are five types of callouts, including: note, warning, important, tip, and caution.\n\n\n\n\n\n\n\n\nTip With Caption\n\n\n\nThis is an example of a callout with a caption.\n\n\n\n\n\n\n\n\nExpand To Learn About Collapse\n\n\n\n\n\nThis is an example of a ‘folded’ caution callout that can be expanded by the user. You can use collapse=\"true\" to collapse it by default or collapse=\"false\" to make a collapsible callout that is expanded by default."
+  },
+  {
+    "objectID": "index.html#estructura-del-libro",
+    "href": "index.html#estructura-del-libro",
+    "title": "Introducción a la Programación",
+    "section": "Estructura del libro",
+    "text": "Estructura del libro\nIntroducción a la Programación con Python está dividido en n capítulos:\n\nIntroducción a la Programación\n\n1.1. Historía de la Computación\n1.2. Qué es la Programación\n1.3. Lenguajes de Programación\n1.4. Entorno de Desarrollo Integrado (Integrated Development Environment ‘IDE’)\n\nLenguaje Python\n\n2.1. Instalación del ambiente de desarrollo (Anaconda)\n2.2. Ambientes Virtuales en Python\n2.3."
+  },
+  {
+    "objectID": "index.html#estructura-del-libro-1",
+    "href": "index.html#estructura-del-libro-1",
+    "title": "Introducción a la Programación en Python",
+    "section": "Estructura del Libro",
+    "text": "Estructura del Libro\n\n\n\n\n\n\nWork in Progress\n\n\n\nThis is a Work in Progress project. The idea is to summarize all ML topics and how I see and understand them.\n\n\nMachine learning is a rapidly growing field that enables computers to learn from data, without being explicitly programmed. The goal of machine learning is to build models that can make predictions or take actions based on input data, and improve their performance over time through experience.\n\n\n\n\n\n\nNote\n\n\n\nNote that there are five types of callouts, including: note, warning, important, tip, and caution.\n\n\n\n\n\n\n\n\nTip With Caption\n\n\n\nThis is an example of a callout with a caption.\n\n\n\n\n\n\n\n\nExpand To Learn About Collapse\n\n\n\n\n\nThis is an example of a ‘folded’ caution callout that can be expanded by the user. You can use collapse=\"true\" to collapse it by default or collapse=\"false\" to make a collapsible callout that is expanded by default."
+  },
+  {
+    "objectID": "index.html#versiones-usadas-en-este-libro",
+    "href": "index.html#versiones-usadas-en-este-libro",
+    "title": "Introducción a la Programación",
+    "section": "Versiones usadas en este libro",
+    "text": "Versiones usadas en este libro\n\n\nCódigo\nimport sys\nprint(\"Python version: {}\".format(sys.version))\nimport pandas as pd\nprint(\"pandas version: {}\".format(pd.__version__))\nimport matplotlib\nprint(\"matplotlib version: {}\".format(matplotlib.__version__))\nimport numpy as np\nprint(\"NumPy version: {}\".format(np.__version__))\nimport scipy as sp\nprint(\"SciPy version: {}\".format(sp.__version__))\nimport IPython\nprint(\"IPython version: {}\".format(IPython.__version__))\nimport sklearn\nprint(\"scikit-learn version: {}\".format(sklearn.__version__))\n\n\nPython version: 3.9.13 (main, Aug 25 2022, 23:26:10) \n[GCC 11.2.0]\npandas version: 1.5.3\nmatplotlib version: 3.6.3\nNumPy version: 1.23.5\nSciPy version: 1.10.0\nIPython version: 8.9.0\n\n\nscikit-learn version: 1.2.1"
+  },
+  {
+    "objectID": "index.html#por-qué-aprender-a-programar",
+    "href": "index.html#por-qué-aprender-a-programar",
+    "title": "Introducción a la Programación",
+    "section": "¿Por qué aprender a programar?",
+    "text": "¿Por qué aprender a programar?\nSi quieres entender al menos un poco el mundo que te rodea es importante tener conocimientos básicos de matemáticas, física, química y biología. A esta lista ahora se suman las ciencias de la computación pues vivimos en un mundo cada vez más domidado por la tecnología, y tenemos dos opciones:\n\nla usamos para nuestro veneficio\nla tecnología nos usa a nosotros\n\nEs por eso que, aunque solo sea con la finalidad de entender como funciona todo a nuestro alrededor, es importante tener nociones de ciencias de la computación en general y de programación en particular.\nDicho esto, hablemos un poco de la estructura de este libro y del lenguaje de programación que hemos elejido para escribir los códigos de los ejemplos del mismo."
   }
 ]

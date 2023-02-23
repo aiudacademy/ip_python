@@ -1,8 +1,45 @@
-# Introduction {.unnumbered}
+# Introducción {.unnumbered}
 
-Introducción a la Programación con Python es un libro diseñado para aquellas personas que desean iniciarse en el mundo de la programación desde cero. En este libro te guiaremos a través de los conceptos básicos de la programación y te mostraremos cómo aplicarlos para crear programas simples y útiles. Ya sea que estés interesado en la programación por diversión, para desarrollar habilidades profesionales o simplemente para comprender mejor la tecnología que te rodea, este libro es un excelente punto de partida.
+**Introducción a la Programación *con Python*** es un libro diseñado para aquellas personas que desean iniciarse en el mundo de la programación desde cero. En este libro te guiaremos a través de los conceptos básicos de la programación y te mostraremos cómo aplicarlos para crear programas simples y útiles. 
 
-Hemos elegido Python como lenguaje para desarrollar los ejemplos del libro debido a su sintaxis clara y legible, amplia comunidad y recursos, versatilidad, enfoque en la eficiencia y facilidad de instalación y configuración. Además, Python es un lenguaje popular y en constante crecimiento, lo que significa que los estudiantes que aprenden Python tendrán habilidades que son valiosas en una amplia variedad de campos y carreras, como Inteligencia Artificial, Machine Learning o Ciencia de Datos.
+::: {.callout-note}
+## Nota
+Ya sea que estés interesado en la programación por diversión, para desarrollar habilidades profesionales o simplemente para comprender mejor la tecnología que te rodea, este libro es un excelente punto de partida.
+:::
+
+## ¿Por qué aprender a programar?
+
+Si quieres entender al menos un poco el mundo que te rodea es importante tener conocimientos básicos de matemáticas, física, química y biología. A esta lista ahora se suman las ciencias de la computación pues vivimos en un mundo cada vez más domidado por la tecnología, y tenemos dos opciones:
+
+1. **la usamos para nuestro veneficio**
+2. **la tecnología nos usa a nosotros** 
+
+Es por eso que, aunque solo sea con la finalidad de entender como funciona todo a nuestro alrededor, es importante tener nociones de ciencias de la computación en general y de programación en particular.
+
+Dicho esto, hablemos un poco de la estructura de este libro y del lenguaje de programación que hemos elejido para escribir los códigos de los ejemplos del mismo.
+
+## Estructura del libro
+
+**Introducción a la Programación con Python** está dividido en n capítulos:
+
+1. Introducción a la Programación
+    + 1.1. Historía de la Computación
+    + 1.2. Qué es la Programación
+    + 1.3. Lenguajes de Programación
+    + 1.4. Entorno de Desarrollo Integrado (Integrated Development Environment 'IDE')
+
+2. Lenguaje Python
+    + 2.1. Instalación del ambiente de desarrollo ([Anaconda](https://www.anaconda.com/))
+    + 2.2. Ambientes Virtuales en Python
+    + 2.3. 
+
+## ¿Por qué Python?
+
+Python es un lenguaje fácil de aprender y de usar, tiene una sintaxis clara y legible, amplia comunidad y recursos, versatilidad, enfoque en la eficiencia y facilidad de instalación y configuración. Además y gracias su uso extensivo en Inteligencia Artificial, Machine Learning y Ciencia de Datos; se ha convertido en uno de los lenguajes más usados en el mundo y de los más demandados por las empresas. *Podríamos decir que si sabes Python nunca te faltaran las oportunidades de trabajo*.
+
+[![Python ha ido ganando popularidad en los últimos años (no ha parado de crecer desde el 2018), llegando a desplazar en los últimos meses a lenguajes como Java y C.](img/tiobe_index.png)](https://www.tiobe.com/tiobe-index/)
+
+
 
 
 ::: {.callout-caution}
@@ -29,42 +66,7 @@ This is an example of a callout with a caption.
 This is an example of a 'folded' caution callout that can be expanded by the user. You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible callout that is expanded by default.
 :::
 
-## Overview of Machine Learning:
-
-Machine learning is a subfield of artificial intelligence that involves the development of algorithms and statistical models that allow computers to learn from data. There are three main types of machine learning: supervised learning, unsupervised learning, and reinforcement learning.
-
-Supervised learning is the most common type of machine learning, in which a model is trained on a labeled dataset to make predictions about new, unseen data. Examples include linear regression, logistic regression, and decision trees.
-
-Unsupervised learning involves discovering patterns in unlabeled data, such as clustering and dimensionality reduction.
-
-Reinforcement learning involves training an agent to make decisions in an environment to maximize a reward.
-
-## Applications of Machine Learning
-
-Machine learning has many applications in various industries, including:
-
-- Healthcare: for example, identifying potential health risks, diagnosing diseases, and creating personalized treatment plans
-- Finance: for example, detecting fraudulent transactions, predicting stock prices, and identifying potential investment opportunities
-- Retail: for example, personalizing product recommendations, optimizing pricing strategies, and improving supply chain efficiency
-- Manufacturing: for example, predictive maintenance, quality control, and optimization of production processes
-- Transportation: for example, traffic prediction, autonomous driving, and fleet management
-- Cybersecurity: for example, intrusion detection, anomaly detection, and threat intelligence
-
-## Key Concepts and Terminology
-
-Machine learning is a complex field with many technical terms and concepts. Some key terms and concepts that will be covered in this book include:
-
-- Model: a representation of the relationships between input data and output predictions or actions
-- Training: the process of fitting a model to a dataset
-- Testing: the process of evaluating a model on new, unseen data
-- Overfitting: when a model is too complex and performs well on the training data but poorly on the test data
-- Regularization: a technique for preventing overfitting by adding a penalty term to the model's objective function
-- Gradient descent: an optimization algorithm for finding the minimum of a function
-- Neural networks: a type of model that is inspired by the structure and function of the human brain
-- Convolutional neural networks (CNNs): a type of neural network designed for image recognition
-- Recurrent neural networks (RNNs): a type of neural network designed for sequential data such as time series and natural language.
-
-## Versions Used in this Book
+## Versiones usadas en este libro
 
 ```{python}
 

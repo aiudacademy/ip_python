@@ -4,7 +4,8 @@ project:
 
 book:
   cover-image: logo_new.png
-  title: "Introducción a la Programación en Python"
+  title: "Introducción a la Programación"
+  subtitle: "**con Python**"
   author:
   - name: "Noel Moreno Lemus, Ph.D."
     url: https://www.linkedin.com/in/nmlemus/
@@ -45,6 +46,7 @@ format:
   html:
     theme: cosmo
     code-fold: true
+    lang: es
   pdf:
     documentclass: scrbook
     papersize: letter
