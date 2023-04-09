@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.3.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introducción a la Programación en Python - 1&nbsp; Introducción a la Programación</title>
+<title>Introducción a la Programación - 1&nbsp; Introducción a la programación y al lenguaje Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../conclusions.html" rel="next">
+<link href="../sistemas_numericos.html" rel="next">
 <link href="../index.html" rel="prev">
 <link href="../logo_new.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -64,7 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script async="" src="https://hypothes.is/embed.js"></script>
 
 
-<meta name="twitter:title" content="Introducción a la Programación en Python - 1&nbsp; Introducción a la Programación">
+<meta name="twitter:title" content="Introducción a la Programación - 1&nbsp; Introducción a la programación y al lenguaje Python">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -72,11 +73,16 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la Programación</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../intro/intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la programación y al lenguaje Python</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -84,90 +90,130 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Introducción a la Programación en Python</a> 
+      <a href="../">Introducción a la Programación</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/aiudacademy/ip_python/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="../Introducción-a-la-Programación-en-Python.pdf">
-            <i class="bi bi-bi-file-pdf pe-1"></i>
-          Download PDF
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="../Introducción-a-la-Programación-en-Python.epub">
-            <i class="bi bi-bi-journal pe-1"></i>
-          Download ePub
-          </a>
-        </li>
-    </ul>
-    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-    </ul>
+    <a href="https://github.com/aiudacademy/ip_python/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../Introducción-a-la-Programación.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../Introducción-a-la-Programación.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Buscar"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">Introducción</a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Introducción a la Programación</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../intro/intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la Programación</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../conclusions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Conclusion</span></a>
+  <a href="../intro/intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la programación y al lenguaje Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sistemas_numericos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sistemas numéricos, lenguajes de máquina y ensamblador</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lenguajes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lenguajes de alto nivel y Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conclusions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#definición-de-programación" id="toc-definición-de-programación" class="nav-link active" data-scroll-target="#definición-de-programación"><span class="toc-section-number">1.1</span>  Definición de programación</a></li>
-  <li><a href="#por-qué-aprender-a-programar" id="toc-por-qué-aprender-a-programar" class="nav-link" data-scroll-target="#por-qué-aprender-a-programar"><span class="toc-section-number">1.2</span>  Por qué aprender a programar</a></li>
-  <li><a href="#introducción-a-python-y-su-historia" id="toc-introducción-a-python-y-su-historia" class="nav-link" data-scroll-target="#introducción-a-python-y-su-historia"><span class="toc-section-number">1.3</span>  Introducción a Python y su historia</a></li>
-  <li><a href="#instalación-y-configuración-del-ambiente-de-desarrollo" id="toc-instalación-y-configuración-del-ambiente-de-desarrollo" class="nav-link" data-scroll-target="#instalación-y-configuración-del-ambiente-de-desarrollo"><span class="toc-section-number">1.4</span>  Instalación y Configuración del Ambiente de Desarrollo</a></li>
+  <li><a href="#qué-es-la-programación" id="toc-qué-es-la-programación" class="nav-link active" data-scroll-target="#qué-es-la-programación"><span class="header-section-number">1.1</span> ¿Qué es la programación?</a>
+  <ul class="collapse">
+  <li><a href="#definición-de-programación" id="toc-definición-de-programación" class="nav-link" data-scroll-target="#definición-de-programación"><span class="header-section-number">1.1.1</span> Definición de programación</a></li>
+  <li><a href="#lenguajes-de-programación" id="toc-lenguajes-de-programación" class="nav-link" data-scroll-target="#lenguajes-de-programación"><span class="header-section-number">1.1.2</span> Lenguajes de programación</a></li>
+  <li><a href="#algoritmos-y-pseudocódigo" id="toc-algoritmos-y-pseudocódigo" class="nav-link" data-scroll-target="#algoritmos-y-pseudocódigo"><span class="header-section-number">1.1.3</span> Algoritmos y pseudocódigo</a></li>
+  <li><a href="#ejecución-de-programas" id="toc-ejecución-de-programas" class="nav-link" data-scroll-target="#ejecución-de-programas"><span class="header-section-number">1.1.4</span> Ejecución de programas</a></li>
+  </ul></li>
+  <li><a href="#historia-de-la-programación" id="toc-historia-de-la-programación" class="nav-link" data-scroll-target="#historia-de-la-programación"><span class="header-section-number">1.2</span> Historia de la programación</a>
+  <ul class="collapse">
+  <li><a href="#primeras-máquinas-programables" id="toc-primeras-máquinas-programables" class="nav-link" data-scroll-target="#primeras-máquinas-programables"><span class="header-section-number">1.2.1</span> Primeras máquinas programables</a></li>
+  <li><a href="#evolución-de-los-lenguajes-de-programación" id="toc-evolución-de-los-lenguajes-de-programación" class="nav-link" data-scroll-target="#evolución-de-los-lenguajes-de-programación"><span class="header-section-number">1.2.2</span> Evolución de los lenguajes de programación</a></li>
+  <li><a href="#paradigmas-de-programación" id="toc-paradigmas-de-programación" class="nav-link" data-scroll-target="#paradigmas-de-programación"><span class="header-section-number">1.2.3</span> Paradigmas de programación</a></li>
+  </ul></li>
+  <li><a href="#lenguaje-python-características-y-ventajas" id="toc-lenguaje-python-características-y-ventajas" class="nav-link" data-scroll-target="#lenguaje-python-características-y-ventajas"><span class="header-section-number">1.3</span> Lenguaje Python: características y ventajas</a>
+  <ul class="collapse">
+  <li><a href="#historia-de-python" id="toc-historia-de-python" class="nav-link" data-scroll-target="#historia-de-python"><span class="header-section-number">1.3.1</span> Historia de Python</a></li>
+  <li><a href="#características-del-lenguaje-python" id="toc-características-del-lenguaje-python" class="nav-link" data-scroll-target="#características-del-lenguaje-python"><span class="header-section-number">1.3.2</span> Características del lenguaje Python</a></li>
+  <li><a href="#ventajas-y-aplicaciones-de-python" id="toc-ventajas-y-aplicaciones-de-python" class="nav-link" data-scroll-target="#ventajas-y-aplicaciones-de-python"><span class="header-section-number">1.3.3</span> Ventajas y aplicaciones de Python</a></li>
+  <li><a href="#comunidad-y-recursos-de-python" id="toc-comunidad-y-recursos-de-python" class="nav-link" data-scroll-target="#comunidad-y-recursos-de-python"><span class="header-section-number">1.3.4</span> Comunidad y recursos de Python</a></li>
+  </ul></li>
+  <li><a href="#instalación-del-ambiente-de-desarrollo-anaconda" id="toc-instalación-del-ambiente-de-desarrollo-anaconda" class="nav-link" data-scroll-target="#instalación-del-ambiente-de-desarrollo-anaconda"><span class="header-section-number">1.4</span> Instalación del ambiente de desarrollo (Anaconda)</a>
+  <ul class="collapse">
+  <li><a href="#qué-es-anaconda" id="toc-qué-es-anaconda" class="nav-link" data-scroll-target="#qué-es-anaconda"><span class="header-section-number">1.4.1</span> ¿Qué es Anaconda?</a></li>
+  <li><a href="#instalación-de-anaconda-en-diferentes-sistemas-operativos-windows-macos-linux" id="toc-instalación-de-anaconda-en-diferentes-sistemas-operativos-windows-macos-linux" class="nav-link" data-scroll-target="#instalación-de-anaconda-en-diferentes-sistemas-operativos-windows-macos-linux"><span class="header-section-number">1.4.2</span> Instalación de Anaconda en diferentes sistemas operativos (Windows, macOS, Linux)</a></li>
+  <li><a href="#verificación-de-la-instalación-y-actualización-de-anaconda" id="toc-verificación-de-la-instalación-y-actualización-de-anaconda" class="nav-link" data-scroll-target="#verificación-de-la-instalación-y-actualización-de-anaconda"><span class="header-section-number">1.4.3</span> Verificación de la instalación y actualización de Anaconda</a></li>
+  <li><a href="#introducción-a-jupyter-notebook-y-jupyterlab" id="toc-introducción-a-jupyter-notebook-y-jupyterlab" class="nav-link" data-scroll-target="#introducción-a-jupyter-notebook-y-jupyterlab"><span class="header-section-number">1.4.4</span> Introducción a Jupyter Notebook y JupyterLab</a></li>
+  </ul></li>
+  <li><a href="#ambientes-virtuales-en-python" id="toc-ambientes-virtuales-en-python" class="nav-link" data-scroll-target="#ambientes-virtuales-en-python"><span class="header-section-number">1.5</span> Ambientes Virtuales en Python</a>
+  <ul class="collapse">
+  <li><a href="#qué-es-un-ambiente-virtual" id="toc-qué-es-un-ambiente-virtual" class="nav-link" data-scroll-target="#qué-es-un-ambiente-virtual"><span class="header-section-number">1.5.1</span> ¿Qué es un ambiente virtual?</a></li>
+  <li><a href="#ventajas-y-uso-de-los-ambientes-virtuales" id="toc-ventajas-y-uso-de-los-ambientes-virtuales" class="nav-link" data-scroll-target="#ventajas-y-uso-de-los-ambientes-virtuales"><span class="header-section-number">1.5.2</span> Ventajas y uso de los ambientes virtuales</a></li>
+  <li><a href="#creación-y-activación-de-ambientes-virtuales-en-python" id="toc-creación-y-activación-de-ambientes-virtuales-en-python" class="nav-link" data-scroll-target="#creación-y-activación-de-ambientes-virtuales-en-python"><span class="header-section-number">1.5.3</span> Creación y activación de ambientes virtuales en Python</a></li>
+  <li><a href="#instalación-y-administración-de-paquetes-en-ambientes-virtuales" id="toc-instalación-y-administración-de-paquetes-en-ambientes-virtuales" class="nav-link" data-scroll-target="#instalación-y-administración-de-paquetes-en-ambientes-virtuales"><span class="header-section-number">1.5.4</span> Instalación y administración de paquetes en ambientes virtuales</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/aiudacademy/ip_python/edit/main/intro/intro.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
     </div>
@@ -176,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la Programación</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la programación y al lenguaje Python</span></h1>
 </div>
 
 
@@ -191,19 +237,197 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="definición-de-programación" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="definición-de-programación"><span class="header-section-number">1.1</span> Definición de programación</h2>
+<p>Al final de este capítulo, los estudiantes entenderán los conceptos básicos de la programación y la importancia de los lenguajes de programación. También, aprenderán sobre las características y ventajas del lenguaje Python, cómo instalar el ambiente de desarrollo utilizando Anaconda y cómo trabajar con ambientes virtuales para administrar proyectos en Python.</p>
+<section id="qué-es-la-programación" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="qué-es-la-programación"><span class="header-section-number">1.1</span> ¿Qué es la programación?</h2>
+<p>Al final de esta sección, comprenderán el concepto de programación y conocerán la diferencia entre lenguajes de programación, algoritmos y pseudocódigo, así como los procesos de interpretación y compilación para la ejecución de programas.</p>
+<section id="definición-de-programación" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="definición-de-programación"><span class="header-section-number">1.1.1</span> Definición de programación</h3>
+<p>Según Wikipedia la programación es el proceso de crear un conjunto de instrucciones que le dicen a una computadora como realizar algún tipo de tarea. Pero no solo la acción de escribir un código para que la computadora o el software lo ejecute. Incluye, además, todas las tareas necesarias para que el código funcione correctamente y cumpla el objetivo para el cual se escribió.</p>
 </section>
-<section id="por-qué-aprender-a-programar" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="por-qué-aprender-a-programar"><span class="header-section-number">1.2</span> Por qué aprender a programar</h2>
+<section id="lenguajes-de-programación" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="lenguajes-de-programación"><span class="header-section-number">1.1.2</span> Lenguajes de programación</h3>
 </section>
-<section id="introducción-a-python-y-su-historia" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="introducción-a-python-y-su-historia"><span class="header-section-number">1.3</span> Introducción a Python y su historia</h2>
+<section id="algoritmos-y-pseudocódigo" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="algoritmos-y-pseudocódigo"><span class="header-section-number">1.1.3</span> Algoritmos y pseudocódigo</h3>
+<p>Un algoritmo es una secuencia finita de pasos, reglas o instrucciones bien definidas, que se utilizan para resolver un problema o llevar a cabo una tarea específica. Los algoritmos se pueden representar mediante diagramas de flujo, pseudocódigo u otros métodos. El pseudocódigo es una representación de alto nivel de un algoritmo, que utiliza una estructura similar a un lenguaje de programación pero sin seguir las reglas de sintaxis específicas. El pseudocódigo permite a los programadores diseñar y analizar algoritmos sin preocuparse por los detalles de implementación en un lenguaje de programación específico.</p>
+<p>Ejemplo de pseudocódigo para calcular la suma de los números del 1 al N:</p>
+<pre><code>Inicio
+   Leer N
+   Suma = 0
+   Para i = 1 hasta N:
+       Suma = Suma + i
+   Fin Para
+   Escribir Suma
+Fin
+</code></pre>
 </section>
-<section id="instalación-y-configuración-del-ambiente-de-desarrollo" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="instalación-y-configuración-del-ambiente-de-desarrollo"><span class="header-section-number">1.4</span> Instalación y Configuración del Ambiente de Desarrollo</h2>
+<section id="ejecución-de-programas" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="ejecución-de-programas"><span class="header-section-number">1.1.4</span> Ejecución de programas</h3>
+<p>La ejecución de programas implica la interpretación y ejecución de las instrucciones escritas en un lenguaje de programación por parte de una computadora. Dependiendo del lenguaje de programación utilizado, existen dos enfoques principales para ejecutar programas: interpretación y compilación.</p>
+<ul>
+<li><p>Interpretación: Los lenguajes interpretados, como Python, utilizan un programa llamado intérprete que lee y ejecuta el código fuente línea por línea, convirtiendo las instrucciones en lenguaje de máquina que la computadora puede entender y ejecutar. Los programas interpretados suelen ser más lentos en la ejecución pero más rápidos en el desarrollo y depuración, ya que no es necesario compilar el código.</p></li>
+<li><p>Compilación: Los lenguajes compilados, como C++, requieren un programa llamado compilador que convierte el código fuente en un archivo ejecutable en lenguaje de máquina antes de que pueda ser ejecutado por la computadora. Los programas compilados suelen ser más rápidos en la ejecución pero requieren un proceso de compilación antes de ser ejecutados, lo que puede aumentar el tiempo de desarrollo y depuración.</p></li>
+</ul>
+</section>
+</section>
+<section id="historia-de-la-programación" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="historia-de-la-programación"><span class="header-section-number">1.2</span> Historia de la programación</h2>
+<section id="primeras-máquinas-programables" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="primeras-máquinas-programables"><span class="header-section-number">1.2.1</span> Primeras máquinas programables</h3>
+<p>El inicio de la programación se remonta a las primeras máquinas capaces de realizar cálculos matemáticos. A continuación, se mencionan algunas de estas máquinas:</p>
+<ul>
+<li><p>La Máquina Analítica de Charles Babbage (1837): Babbage diseñó esta máquina mecánica para realizar cálculos matemáticos automáticamente utilizando tarjetas perforadas, que contenían las instrucciones para los cálculos. Aunque la Máquina Analítica nunca fue construida completamente, sus conceptos influyeron en el diseño de futuras computadoras.</p></li>
+<li><p>El Telar de Jacquard (1801): El telar de Jacquard, inventado por Joseph Marie Jacquard, fue una innovación en la industria textil que permitía controlar automáticamente el patrón de tejido utilizando tarjetas perforadas. Aunque no era una máquina de cómputo, el concepto de tarjetas perforadas influyó en el almacenamiento y lectura de datos en las primeras computadoras.</p></li>
+<li><p>La Máquina de Turing (1936): Alan Turing propuso la Máquina de Turing como un modelo teórico para resolver problemas matemáticos y lógicos mediante la manipulación de símbolos en una cinta infinita. La Máquina de Turing es considerada como el modelo básico para las computadoras digitales modernas y la base de la teoría de la computación.</p></li>
+</ul>
+</section>
+<section id="evolución-de-los-lenguajes-de-programación" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="evolución-de-los-lenguajes-de-programación"><span class="header-section-number">1.2.2</span> Evolución de los lenguajes de programación</h3>
+<p>La evolución de los lenguajes de programación ha sido una parte fundamental en el avance de la informática. Los lenguajes de programación han pasado por varias generaciones, desde el código máquina y ensamblador hasta los lenguajes de alto nivel que facilitan la escritura de programas.</p>
+<ul>
+<li><p>1ª Generación: Lenguaje máquina (1940-1950): Las primeras computadoras utilizaban código máquina, una serie de números binarios que representaban instrucciones específicas para la máquina. Los programadores debían escribir programas en código máquina, lo cual era un proceso tedioso y propenso a errores.</p></li>
+<li><p>2ª Generación: Lenguaje ensamblador (1950-1960): El lenguaje ensamblador fue un avance que permitía a los programadores escribir instrucciones utilizando mnemónicos, que eran más fáciles de entender y recordar que el código máquina. Los programas escritos en lenguaje ensamblador eran luego traducidos a código máquina por un ensamblador.</p></li>
+<li><p>3ª Generación: Lenguajes de alto nivel (1950-presente): Los lenguajes de alto nivel, como FORTRAN, COBOL, LISP y ALGOL, permitieron a los programadores escribir instrucciones utilizando palabras y símbolos más cercanos al lenguaje humano. Estos lenguajes facilitaron el desarrollo de programas y permitieron la creación de aplicaciones más complejas. Los lenguajes de alto nivel evolucionaron y dieron origen a otros lenguajes populares como C, Pascal, C++, Java, Python y JavaScript.</p></li>
+</ul>
+</section>
+<section id="paradigmas-de-programación" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="paradigmas-de-programación"><span class="header-section-number">1.2.3</span> Paradigmas de programación</h3>
+<p>Los paradigmas de programación representan diferentes enfoques o estilos para organizar y estructurar programas informáticos. Algunos de los paradigmas de programación más comunes son:</p>
+<ul>
+<li><p>Programación imperativa: En este paradigma, los programas consisten en secuencias de instrucciones que modifican el estado del programa. Los programas imperativos suelen utilizar estructuras de control como bucles, condicionales y funciones. Ejemplos de lenguajes que soportan la programación imperativa incluyen C, C++, Java y Python.</p></li>
+<li><p>Programación declarativa: A diferencia de la programación imperativa, que se centra en cómo realizar una tarea, la programación declarativa se centra en describir qué se quiere obtener sin especificar cómo lograrlo. Un subconjunto de la programación declarativa es la programación funcional, que evita el uso de estados y datos mutables. Ejemplos de lenguajes de programación declarativa incluyen SQL, Prolog y Haskell.</p></li>
+<li><p>Programación orientada a objetos (OOP): La programación orientada a objetos es un enfoque que organiza el código en “objetos” que representan entidades del mundo real, con propiedades (atributos) y comportamientos (métodos). Este paradigma promueve la encapsulación, la herencia y el polimorfismo, lo que facilita el desarrollo de sistemas complejos y la reutilización del código. Ejemplos de lenguajes que soportan la programación orientada a objetos incluyen Java, C++, C# y Python.</p></li>
+<li><p>Programación estructurada: La programación estructurada es un enfoque que organiza el código utilizando estructuras de control como secuencias, selección (condicionales) y repetición (bucles), evitando el uso de saltos incondicionales como “goto”. La programación estructurada mejora la legibilidad y la mantenibilidad del código. Ejemplos de lenguajes que soportan la programación estructurada incluyen C, Pascal y Ada.</p></li>
+<li><p>Programación lógica: En la programación lógica, los programas consisten en una serie de declaraciones o hechos que describen relaciones y reglas lógicas. Los programas lógicos se ejecutan mediante un motor de inferencia que deduce nuevas conclusiones o resultados a partir de las declaraciones y reglas proporcionadas. La programación lógica es especialmente útil en la inteligencia artificial y la resolución de problemas que involucran relaciones complejas y restricciones. Un ejemplo de lenguaje de programación lógica es Prolog.</p></li>
+<li><p>Programación concurrente: La programación concurrente es un enfoque que permite la ejecución simultánea de múltiples tareas o procesos, lo cual es útil en aplicaciones que requieren la gestión de múltiples usuarios o eventos simultáneos. La programación concurrente se ocupa de problemas como la sincronización, la comunicación y la compartición de recursos entre tareas concurrentes. Ejemplos de lenguajes que soportan la programación concurrente incluyen Java, C#, Go y Erlang.</p></li>
+</ul>
+<p>Cabe destacar que muchos lenguajes de programación modernos soportan múltiples paradigmas, lo que permite a los programadores elegir el enfoque más adecuado para cada problema o tarea.</p>
+</section>
+</section>
+<section id="lenguaje-python-características-y-ventajas" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="lenguaje-python-características-y-ventajas"><span class="header-section-number">1.3</span> Lenguaje Python: características y ventajas</h2>
+<section id="historia-de-python" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="historia-de-python"><span class="header-section-number">1.3.1</span> Historia de Python</h3>
+<p>Python fue creado por Guido van Rossum a finales de la década de 1980 y su primera versión pública (Python 0.9.0) fue lanzada en 1991. Van Rossum quería crear un lenguaje de programación fácil de leer, escribir y mantener, con una sintaxis clara y simple. Python fue influenciado por lenguajes como ABC, Modula-3 y C. Con el tiempo, Python ha evolucionado y ganado popularidad, convirtiéndose en uno de los lenguajes de programación más utilizados en la actualidad.</p>
+</section>
+<section id="características-del-lenguaje-python" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="características-del-lenguaje-python"><span class="header-section-number">1.3.2</span> Características del lenguaje Python</h3>
+<p>Python es un lenguaje de programación de alto nivel con una serie de características distintivas:</p>
+<ul>
+<li><p>Sintaxis clara y legible: La sintaxis de Python se basa en la indentación, lo que facilita la lectura y comprensión del código, incluso para principiantes.</p></li>
+<li><p>Tipado dinámico: Python es un lenguaje de tipado dinámico, lo que significa que las variables pueden cambiar de tipo en tiempo de ejecución. Esto permite mayor flexibilidad en la escritura de código.</p></li>
+<li><p>Orientación a objetos: Python es un lenguaje orientado a objetos, lo que permite la creación de clases y objetos para modelar y organizar el código de manera más estructurada.</p></li>
+<li><p>Biblioteca estándar extensa: Python incluye una amplia biblioteca estándar con módulos y funciones que facilitan la realización de tareas comunes como el manejo de archivos, comunicación en red y operaciones matemáticas.</p></li>
+<li><p>Multiplataforma: Python es compatible con diferentes sistemas operativos como Windows, macOS y Linux.</p></li>
+<li><p>Interactivo: Python permite la ejecución interactiva de código a través de un intérprete, lo que facilita la depuración y el aprendizaje del lenguaje.</p></li>
+</ul>
+</section>
+<section id="ventajas-y-aplicaciones-de-python" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="ventajas-y-aplicaciones-de-python"><span class="header-section-number">1.3.3</span> Ventajas y aplicaciones de Python</h3>
+<p>Python ofrece varias ventajas que lo convierten en una opción popular para diferentes aplicaciones:</p>
+<ul>
+<li><p>Facilidad de aprendizaje: La sintaxis simple y legible de Python lo convierte en un lenguaje ideal para principiantes en programación.</p></li>
+<li><p>Versatilidad: Python es un lenguaje multiparadigma que se adapta a diferentes estilos de programación y puede utilizarse en diversos tipos de proyectos, desde aplicaciones web hasta análisis de datos y desarrollo de videojuegos.</p></li>
+<li><p>Comunidad activa: Python cuenta con una amplia comunidad de desarrolladores que contribuyen con bibliotecas y paquetes adicionales para extender las capacidades del lenguaje, así como con tutoriales, cursos y documentación para facilitar el aprendizaje de Python.</p></li>
+<li><p>Integración con otros lenguajes: Python puede interactuar con otros lenguajes de programación como C, C++ y Java, lo que permite la reutilización de código y la optimización de ciertas partes del programa.</p></li>
+</ul>
+<section id="algunas-aplicaciones-comunes-de-python-incluyen" class="level4" data-number="1.3.3.1">
+<h4 data-number="1.3.3.1" class="anchored" data-anchor-id="algunas-aplicaciones-comunes-de-python-incluyen"><span class="header-section-number">1.3.3.1</span> Algunas aplicaciones comunes de Python incluyen:</h4>
+<ul>
+<li><p>Desarrollo web: Con frameworks como Django y Flask, Python es una opción popular para crear aplicaciones web escalables y eficientes.</p></li>
+<li><p>Análisis de datos y ciencia de datos: Python es ampliamente utilizado en análisis de datos, inteligencia artificial y aprendizaje automático, gracias a bibliotecas como NumPy, pandas, TensorFlow y scikit-learn.</p></li>
+<li><p>Automatización y scripting: Python es ideal para automatizar tareas repetitivas y crear scripts para simplificar procesos, gracias a su facilidad de uso y a su extensa biblioteca estándar.</p></li>
+<li><p>Desarrollo de videojuegos: Python se utiliza en el desarrollo de videojuegos con la ayuda de bibliotecas y motores como Pygame y Panda3D.</p></li>
+<li><p>Desarrollo de aplicaciones de escritorio: Con bibliotecas como PyQt y Tkinter, Python permite crear aplicaciones de escritorio con interfaces gráficas de usuario.</p></li>
+<li><p>Internet de las cosas (IoT): Python también se utiliza en el desarrollo de aplicaciones para dispositivos IoT, gracias a su compatibilidad con plataformas como Raspberry Pi y su facilidad de integración con hardware.</p></li>
+</ul>
+</section>
+</section>
+<section id="comunidad-y-recursos-de-python" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="comunidad-y-recursos-de-python"><span class="header-section-number">1.3.4</span> Comunidad y recursos de Python</h3>
+<p>La comunidad de Python es uno de los aspectos más valiosos del lenguaje. Con una amplia base de usuarios y desarrolladores, es fácil encontrar ayuda, colaboración y recursos para aprender y mejorar en Python. Algunos de los recursos más relevantes incluyen:</p>
+<ul>
+<li><p>Documentación oficial de Python: La documentación oficial de Python (<a href="https://docs.python.org">https://docs.python.org</a>) es un recurso completo que incluye tutoriales, guías y referencias para todos los aspectos del lenguaje y su biblioteca estándar.</p></li>
+<li><p>Python Package Index (PyPI): PyPI (<a href="https://pypi.org">https://pypi.org</a>) es un repositorio de paquetes y bibliotecas de terceros desarrollados por la comunidad de Python. Aquí puedes encontrar soluciones y extensiones para una amplia variedad de problemas y aplicaciones.</p></li>
+<li><p>Foros y comunidades en línea: La comunidad de Python es activa en foros como Stack Overflow (<a href="https://stackoverflow.com">https://stackoverflow.com</a>) y Reddit (<a href="https://www.reddit.com/r/Python">https://www.reddit.com/r/Python</a>), donde puedes hacer preguntas, compartir conocimientos y colaborar con otros desarrolladores.</p></li>
+<li><p>Conferencias y eventos: La comunidad de Python organiza eventos y conferencias en todo el mundo, como PyCon (<a href="https://www.pycon.org">https://www.pycon.org</a>) y EuroPython (<a href="https://www.europython.eu">https://www.europython.eu</a>), donde los desarrolladores pueden aprender, colaborar y conectarse con otros profesionales y entusiastas del lenguaje.</p></li>
+<li><p>Cursos y tutoriales: Existen numerosos cursos y tutoriales en línea, tanto gratuitos como de pago, que cubren diversos aspectos de Python, desde conceptos básicos hasta temas avanzados como ciencia de datos y desarrollo web. Algunos recursos populares incluyen Codecademy (<a href="https://www.codecademy.com">https://www.codecademy.com</a>), Coursera (<a href="https://www.coursera.org">https://www.coursera.org</a>) y edX (<a href="https://www.edx.org">https://www.edx.org</a>).</p></li>
+</ul>
+</section>
+</section>
+<section id="instalación-del-ambiente-de-desarrollo-anaconda" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="instalación-del-ambiente-de-desarrollo-anaconda"><span class="header-section-number">1.4</span> Instalación del ambiente de desarrollo (Anaconda)</h2>
+<section id="qué-es-anaconda" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="qué-es-anaconda"><span class="header-section-number">1.4.1</span> ¿Qué es Anaconda?</h3>
+<p>Anaconda es una distribución gratuita y de código abierto de los lenguajes de programación Python y R, que se utiliza ampliamente en la ciencia de datos, el aprendizaje automático y la computación científica. Anaconda simplifica la gestión de paquetes y entornos, proporcionando una plataforma unificada para instalar y administrar múltiples versiones de paquetes y sus dependencias. Además, Anaconda incluye herramientas como Jupyter Notebook y JupyterLab, que facilitan el desarrollo y la colaboración en proyectos de análisis de datos y computación científica.</p>
+</section>
+<section id="instalación-de-anaconda-en-diferentes-sistemas-operativos-windows-macos-linux" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="instalación-de-anaconda-en-diferentes-sistemas-operativos-windows-macos-linux"><span class="header-section-number">1.4.2</span> Instalación de Anaconda en diferentes sistemas operativos (Windows, macOS, Linux)</h3>
+<p>Para instalar Anaconda en tu sistema operativo, sigue los pasos a continuación:</p>
+<p>Visita la página de descargas de <a href="https://www.anaconda.com/products/distribution">Anaconda</a> y selecciona la versión adecuada para tu sistema operativo (Windows, macOS o Linux).</p>
+<p>Descarga el instalador de Anaconda correspondiente a tu sistema operativo.</p>
+<p>Ejecuta el instalador y sigue las instrucciones en pantalla. Durante la instalación, se te preguntará si deseas instalar Anaconda para todos los usuarios del sistema o solo para tu usuario actual. Se recomienda instalar Anaconda para todos los usuarios si tienes permisos de administrador en tu computadora.</p>
+<p>Windows: Ejecuta el archivo .exe descargado y sigue las instrucciones en pantalla.</p>
+<p>macOS: Ejecuta el archivo .pkg descargado y sigue las instrucciones en pantalla.</p>
+<p>Linux: Abre una terminal, navega hasta el directorio donde se encuentra el archivo .sh descargado y ejecuta el siguiente comando: bash <code>nombre_del_archivo.sh</code>, donde <code>nombre_del_archivo.sh</code> es el nombre del archivo descargado. Sigue las instrucciones en pantalla.</p>
+</section>
+<section id="verificación-de-la-instalación-y-actualización-de-anaconda" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="verificación-de-la-instalación-y-actualización-de-anaconda"><span class="header-section-number">1.4.3</span> Verificación de la instalación y actualización de Anaconda</h3>
+<p>Una vez que hayas instalado Anaconda, es importante verificar que se haya instalado correctamente y actualizarlo a la última versión. Para hacer esto, sigue los pasos a continuación:</p>
+<ul>
+<li><p>Abre una terminal (o Anaconda Prompt en Windows) y ejecuta el siguiente comando para verificar que Anaconda está instalado correctamente: <code>conda --version</code>. Deberías ver la versión actual de conda en la respuesta.</p></li>
+<li><p>Para actualizar Anaconda a la última versión, ejecuta el siguiente comando: <code>conda update --all</code>. Este comando actualizará todos los paquetes y dependencias a sus últimas versiones compatibles.</p></li>
+</ul>
+</section>
+<section id="introducción-a-jupyter-notebook-y-jupyterlab" class="level3" data-number="1.4.4">
+<h3 data-number="1.4.4" class="anchored" data-anchor-id="introducción-a-jupyter-notebook-y-jupyterlab"><span class="header-section-number">1.4.4</span> Introducción a Jupyter Notebook y JupyterLab</h3>
+<p>Jupyter Notebook y JupyterLab son entornos de desarrollo interactivo que permiten crear y compartir documentos que contienen código, texto, imágenes y gráficos en vivo. Estas herramientas facilitan la exploración de datos, el análisis y la comunicación de resultados en un formato fácil de entender y compartir.</p>
+<ul>
+<li><p>Jupyter Notebook: Para iniciar Jupyter Notebook, abre una terminal (o Anaconda Prompt en Windows) y ejecuta el comando jupyter notebook. Esto abrirá una nueva ventana o pestaña en tu navegador web con la interfaz de Jupyter Notebook. Desde aquí, puedes crear nuevos cuadernos, abrir cuadernos existentes y administrar tus archivos</p></li>
+<li><p>JupyterLab: JupyterLab es una evolución de Jupyter Notebook que ofrece una experiencia de usuario más avanzada e integrada. Para iniciar JupyterLab, abre una terminal (o Anaconda Prompt en Windows) y ejecuta el comando jupyter lab. Esto abrirá una nueva ventana o pestaña en tu navegador web con la interfaz de JupyterLab. JupyterLab presenta una interfaz similar a la de un entorno de desarrollo integrado (IDE), con una barra lateral que facilita la navegación y organización de tus archivos, así como la posibilidad de abrir múltiples cuadernos y otros documentos en pestañas.</p></li>
+</ul>
+<p>Ambos entornos, Jupyter Notebook y JupyterLab, permiten ejecutar código en celdas individuales e interactivas, lo que facilita la experimentación y depuración. Además, puedes agregar texto en formato Markdown para proporcionar explicaciones, fórmulas matemáticas y visualizaciones en línea con tu código.</p>
+<p>Con Jupyter Notebook y JupyterLab, puedes crear documentos completos y autocontenidos que incluyan tanto el código como la explicación de tus análisis y resultados, lo que facilita la colaboración y la comunicación de tus proyectos. Estos documentos se pueden exportar a diversos formatos, como HTML, PDF y presentaciones de diapositivas, para compartirlos fácilmente con otras personas.</p>
+<p>En resumen, la instalación de Anaconda proporciona un entorno de desarrollo completo y unificado para trabajar con Python, especialmente en proyectos de ciencia de datos y análisis. Con herramientas como Jupyter Notebook y JupyterLab, puedes explorar y analizar datos de manera interactiva y eficiente, así como compartir tus resultados y conocimientos de manera clara y accesible.</p>
+</section>
+</section>
+<section id="ambientes-virtuales-en-python" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="ambientes-virtuales-en-python"><span class="header-section-number">1.5</span> Ambientes Virtuales en Python</h2>
+<section id="qué-es-un-ambiente-virtual" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="qué-es-un-ambiente-virtual"><span class="header-section-number">1.5.1</span> ¿Qué es un ambiente virtual?</h3>
+<p>Un ambiente virtual en Python es un entorno aislado en el que puedes instalar y administrar paquetes de manera independiente, sin afectar otros proyectos o el entorno global de Python en tu sistema. Cada ambiente virtual tiene su propia versión de Python, así como sus propios paquetes y dependencias, lo que permite mantener diferentes configuraciones para diferentes proyectos.</p>
+</section>
+<section id="ventajas-y-uso-de-los-ambientes-virtuales" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="ventajas-y-uso-de-los-ambientes-virtuales"><span class="header-section-number">1.5.2</span> Ventajas y uso de los ambientes virtuales</h3>
+<p>Los ambientes virtuales ofrecen varias ventajas, especialmente en proyectos de desarrollo y colaboración:</p>
+<p>Separación de dependencias: Cada proyecto puede tener sus propias versiones de paquetes y dependencias, sin interferir con otros proyectos o con el entorno global de Python.</p>
+<p>Facilita la colaboración: Al utilizar ambientes virtuales, los desarrolladores pueden compartir fácilmente las configuraciones de sus proyectos con otros colaboradores, lo que garantiza que todos trabajen con las mismas versiones de paquetes y dependencias.</p>
+<p>Facilita la implementación y distribución: Los ambientes virtuales permiten empaquetar y distribuir proyectos con sus dependencias específicas, lo que facilita la implementación en diferentes entornos y sistemas.</p>
+</section>
+<section id="creación-y-activación-de-ambientes-virtuales-en-python" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="creación-y-activación-de-ambientes-virtuales-en-python"><span class="header-section-number">1.5.3</span> Creación y activación de ambientes virtuales en Python</h3>
+<p>Para crear y activar un ambiente virtual en Python, sigue los pasos a continuación:</p>
+<p>Abre una terminal (o Anaconda Prompt en Windows).</p>
+<p>Navega hasta el directorio donde deseas crear el ambiente virtual.</p>
+<p>Ejecuta el siguiente comando para crear un ambiente virtual con el nombre “nombre_del_ambiente”: <code>python -m venv nombre_del_ambiente</code>. Puedes reemplazar “nombre_del_ambiente” con el nombre que prefieras para tu ambiente virtual.</p>
+<p>Para activar el ambiente virtual, ejecuta uno de los siguientes comandos, según tu sistema operativo:</p>
+<p>Windows: <code>nombre_del_ambiente\Scripts\activate</code></p>
+<p>macOS y Linux: <code>source nombre_del_ambiente/bin/activate</code></p>
+<p>Una vez activado, el nombre del ambiente virtual aparecerá entre paréntesis al comienzo del indicador de la terminal, indicando que estás trabajando en ese ambiente.</p>
+<p>Para desactivar el ambiente virtual y volver al entorno global de Python, simplemente ejecuta el comando deactivate.</p>
+</section>
+<section id="instalación-y-administración-de-paquetes-en-ambientes-virtuales" class="level3" data-number="1.5.4">
+<h3 data-number="1.5.4" class="anchored" data-anchor-id="instalación-y-administración-de-paquetes-en-ambientes-virtuales"><span class="header-section-number">1.5.4</span> Instalación y administración de paquetes en ambientes virtuales</h3>
+<p>Una vez que hayas activado un ambiente virtual, puedes instalar y administrar paquetes de manera independiente en ese ambiente. Para hacer esto, utiliza el administrador de paquetes pip, que se incluye automáticamente en cada ambiente virtual.</p>
+<p>Para instalar un paquete en el ambiente virtual, ejecuta el siguiente comando: <code>pip install nombre_del_paquete</code>. Puedes reemplazar “nombre_del_paquete” con el nombre del paquete que deseas instalar.</p>
+<p>Para listar los paquetes instalados en el ambiente virtual, ejecuta el comando <code>pip list</code>.</p>
+<p>Para actualizar un paquete a la última versión compatible, ejecuta el siguiente comando: <code>pip install --upgrade nombre_del_paquete</code>.</p>
+<p>Para desinstalar un paquete del ambiente virtual, ejecuta el siguiente comando: <code>pip uninstall nombre_del_paquete</code>.</p>
+<p>Recuerda que estas acciones solo afectarán el ambiente virtual activo y no modificarán el entorno global de Python</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -234,9 +458,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -301,6 +539,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -347,8 +671,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../conclusions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Conclusion</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../sistemas_numericos.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sistemas numéricos, lenguajes de máquina y ensamblador</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

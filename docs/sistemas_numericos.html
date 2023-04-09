@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Introducción a la Programación - 2&nbsp; Sistemas numéricos, lenguajes de máquina y ensamblador</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./lenguajes.html" rel="next">
+<link href="./intro/intro.html" rel="prev">
+<link href="./logo_new.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<meta name="twitter:title" content="Introducción a la Programación - 2&nbsp; Sistemas numéricos, lenguajes de máquina y ensamblador">
+<meta name="twitter:description" content="">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sistemas_numericos.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sistemas numéricos, lenguajes de máquina y ensamblador</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Introducción a la Programación</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/aiudacademy/ip_python/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Introducción-a-la-Programación.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Introducción-a-la-Programación.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la programación y al lenguaje Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sistemas_numericos.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sistemas numéricos, lenguajes de máquina y ensamblador</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lenguajes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lenguajes de alto nivel y Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#introducción-a-los-sistemas-numéricos" id="toc-introducción-a-los-sistemas-numéricos" class="nav-link active" data-scroll-target="#introducción-a-los-sistemas-numéricos"><span class="header-section-number">2.1</span> Introducción a los sistemas numéricos</a>
+  <ul class="collapse">
+  <li><a href="#sistema-decimal-base-10" id="toc-sistema-decimal-base-10" class="nav-link" data-scroll-target="#sistema-decimal-base-10"><span class="header-section-number">2.1.1</span> Sistema decimal (base 10)</a></li>
+  <li><a href="#sistema-binario-base-2" id="toc-sistema-binario-base-2" class="nav-link" data-scroll-target="#sistema-binario-base-2"><span class="header-section-number">2.1.2</span> Sistema binario (base 2)</a></li>
+  <li><a href="#sistema-hexadecimal-base-16" id="toc-sistema-hexadecimal-base-16" class="nav-link" data-scroll-target="#sistema-hexadecimal-base-16"><span class="header-section-number">2.1.3</span> Sistema hexadecimal (base 16)</a></li>
+  <li><a href="#sistema-octal-base-8" id="toc-sistema-octal-base-8" class="nav-link" data-scroll-target="#sistema-octal-base-8"><span class="header-section-number">2.1.4</span> Sistema octal (base 8)</a></li>
+  </ul></li>
+  <li><a href="#uso-de-sistemas-numéricos-en-las-computadoras-modernas" id="toc-uso-de-sistemas-numéricos-en-las-computadoras-modernas" class="nav-link" data-scroll-target="#uso-de-sistemas-numéricos-en-las-computadoras-modernas"><span class="header-section-number">2.2</span> Uso de sistemas numéricos en las computadoras modernas</a>
+  <ul class="collapse">
+  <li><a href="#representación-de-datos-en-binario" id="toc-representación-de-datos-en-binario" class="nav-link" data-scroll-target="#representación-de-datos-en-binario"><span class="header-section-number">2.2.1</span> Representación de datos en binario</a></li>
+  <li><a href="#operaciones-lógicas-y-aritméticas-en-binario" id="toc-operaciones-lógicas-y-aritméticas-en-binario" class="nav-link" data-scroll-target="#operaciones-lógicas-y-aritméticas-en-binario"><span class="header-section-number">2.2.2</span> Operaciones lógicas y aritméticas en binario</a></li>
+  <li><a href="#direcciones-de-memoria-y-registros" id="toc-direcciones-de-memoria-y-registros" class="nav-link" data-scroll-target="#direcciones-de-memoria-y-registros"><span class="header-section-number">2.2.3</span> Direcciones de memoria y registros</a></li>
+  <li><a href="#transmisión-de-datos-y-protocolos-de-comunicación" id="toc-transmisión-de-datos-y-protocolos-de-comunicación" class="nav-link" data-scroll-target="#transmisión-de-datos-y-protocolos-de-comunicación"><span class="header-section-number">2.2.4</span> Transmisión de datos y protocolos de comunicación</a></li>
+  </ul></li>
+  <li><a href="#ejemplos-detallados-de-sistemas-numéricos" id="toc-ejemplos-detallados-de-sistemas-numéricos" class="nav-link" data-scroll-target="#ejemplos-detallados-de-sistemas-numéricos"><span class="header-section-number">2.3</span> Ejemplos detallados de sistemas numéricos</a>
+  <ul class="collapse">
+  <li><a href="#conversión-entre-sistemas-numéricos" id="toc-conversión-entre-sistemas-numéricos" class="nav-link" data-scroll-target="#conversión-entre-sistemas-numéricos"><span class="header-section-number">2.3.1</span> Conversión entre sistemas numéricos</a></li>
+  <li><a href="#representación-de-números-enteros-y-reales-en-computadoras" id="toc-representación-de-números-enteros-y-reales-en-computadoras" class="nav-link" data-scroll-target="#representación-de-números-enteros-y-reales-en-computadoras"><span class="header-section-number">2.3.2</span> Representación de números enteros y reales en computadoras</a></li>
+  <li><a href="#problemas-al-representar-números-decimales-o-reales-en-números-binarios" id="toc-problemas-al-representar-números-decimales-o-reales-en-números-binarios" class="nav-link" data-scroll-target="#problemas-al-representar-números-decimales-o-reales-en-números-binarios"><span class="header-section-number">2.3.3</span> Problemas al representar números decimales o reales en números binarios</a></li>
+  <li><a href="#codificación-de-caracteres-e-imágenes" id="toc-codificación-de-caracteres-e-imágenes" class="nav-link" data-scroll-target="#codificación-de-caracteres-e-imágenes"><span class="header-section-number">2.3.4</span> Codificación de caracteres e imágenes</a></li>
+  <li><a href="#ejemplos-de-operaciones-aritméticas-y-lógicas-en-binario" id="toc-ejemplos-de-operaciones-aritméticas-y-lógicas-en-binario" class="nav-link" data-scroll-target="#ejemplos-de-operaciones-aritméticas-y-lógicas-en-binario"><span class="header-section-number">2.3.5</span> Ejemplos de operaciones aritméticas y lógicas en binario</a></li>
+  </ul></li>
+  <li><a href="#lenguajes-de-máquina-y-ensamblador" id="toc-lenguajes-de-máquina-y-ensamblador" class="nav-link" data-scroll-target="#lenguajes-de-máquina-y-ensamblador"><span class="header-section-number">2.4</span> Lenguajes de máquina y ensamblador</a>
+  <ul class="collapse">
+  <li><a href="#lenguaje-de-máquina-concepto-y-características" id="toc-lenguaje-de-máquina-concepto-y-características" class="nav-link" data-scroll-target="#lenguaje-de-máquina-concepto-y-características"><span class="header-section-number">2.4.1</span> Lenguaje de máquina: concepto y características</a></li>
+  <li><a href="#lenguaje-ensamblador-concepto-y-características" id="toc-lenguaje-ensamblador-concepto-y-características" class="nav-link" data-scroll-target="#lenguaje-ensamblador-concepto-y-características"><span class="header-section-number">2.4.2</span> Lenguaje ensamblador: concepto y características</a></li>
+  <li><a href="#relación-entre-lenguajes-de-máquina-y-ensamblador" id="toc-relación-entre-lenguajes-de-máquina-y-ensamblador" class="nav-link" data-scroll-target="#relación-entre-lenguajes-de-máquina-y-ensamblador"><span class="header-section-number">2.4.3</span> Relación entre lenguajes de máquina y ensamblador</a></li>
+  <li><a href="#ejemplo-end-to-end" id="toc-ejemplo-end-to-end" class="nav-link" data-scroll-target="#ejemplo-end-to-end"><span class="header-section-number">2.4.4</span> Ejemplo end-to-end</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/aiudacademy/ip_python/edit/main/sistemas_numericos.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sistemas numéricos, lenguajes de máquina y ensamblador</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introducción-a-los-sistemas-numéricos" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="introducción-a-los-sistemas-numéricos"><span class="header-section-number">2.1</span> Introducción a los sistemas numéricos</h2>
+<p>Los sistemas numéricos son formas de representar y trabajar con números utilizando diferentes bases. La base de un sistema numérico determina la cantidad de dígitos que se utilizan para representar números en ese sistema. A continuación, se presentan los sistemas numéricos más comunes en informática y matemáticas.</p>
+<section id="sistema-decimal-base-10" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="sistema-decimal-base-10"><span class="header-section-number">2.1.1</span> Sistema decimal (base 10)</h3>
+<p>El sistema decimal es el sistema numérico que utilizamos en la vida cotidiana. Es un sistema de base 10, lo que significa que utiliza 10 dígitos diferentes (del 0 al 9) para representar números. Cada posición en un número decimal representa una potencia de 10, comenzando por 10^0 en el dígito más a la derecha y aumentando hacia la izquierda. Por ejemplo, el número decimal 1234 se puede descomponer como:</p>
+<p><span class="math inline">\((1 × 10^3) + (2 × 10^2) + (3 × 10^1) + (4 × 10^0) = 1000 + 200 + 30 + 4 = 1234\)</span></p>
+</section>
+<section id="sistema-binario-base-2" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="sistema-binario-base-2"><span class="header-section-number">2.1.2</span> Sistema binario (base 2)</h3>
+<p>El sistema binario es un sistema numérico de base 2 que utiliza únicamente dos dígitos: 0 y 1. Es fundamental en la informática y la tecnología de la información, ya que las computadoras y otros dispositivos electrónicos representan y procesan información en forma de bits, que pueden tener uno de dos valores: 0 o 1. Cada posición en un número binario representa una potencia de 2, comenzando por 2^0 en el dígito más a la derecha y aumentando hacia la izquierda. Por ejemplo, el número binario 1101 se puede descomponer como:</p>
+<p><span class="math inline">\((1 × 2^3) + (1 × 2^2) + (0 × 2^1) + (1 × 2^0) = 8 + 4 + 0 + 1 = 13\)</span> (en decimal)</p>
+</section>
+<section id="sistema-hexadecimal-base-16" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="sistema-hexadecimal-base-16"><span class="header-section-number">2.1.3</span> Sistema hexadecimal (base 16)</h3>
+<p>El sistema hexadecimal es un sistema numérico de base 16 que utiliza 16 dígitos diferentes para representar números. Los primeros 10 dígitos son los mismos que en el sistema decimal (0 al 9), seguidos de las letras A, B, C, D, E y F, que representan los valores del 10 al 15. El sistema hexadecimal es útil en informática porque permite representar números binarios de manera más compacta y fácil de leer. Cada dígito hexadecimal representa 4 bits o una nibble. Por ejemplo, el número hexadecimal <span class="math inline">\(1A3\)</span> se puede descomponer como:</p>
+<p>#(1 × 16^2) + (10 × 16^1) + (3 × 16^0) = 256 + 160 + 3 = 419# (en decimal)</p>
+</section>
+<section id="sistema-octal-base-8" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="sistema-octal-base-8"><span class="header-section-number">2.1.4</span> Sistema octal (base 8)</h3>
+<p>El sistema octal es un sistema numérico de base 8 que utiliza 8 dígitos diferentes (del 0 al 7) para representar números. Cada posición en un número octal representa una potencia de 8, comenzando por 8^0 en el dígito más a la derecha y aumentando hacia la izquierda. Aunque el sistema octal no es tan común como los sistemas binario y hexadecimal en la informática moderna, todavía se utiliza en ciertas aplicaciones y contextos, como en la programación de sistemas embebidos y en sistemas operativos Unix para representar permisos de archivo.</p>
+<p>Cada dígito octal representa 3 bits, lo que permite una representación más compacta de números binarios que el sistema decimal, aunque no tan compacta como el sistema hexadecimal. Por ejemplo, el número octal 527 se puede descomponer como:</p>
+<p><span class="math inline">\((5 × 8^2) + (2 × 8^1) + (7 × 8^0) = 320 + 16 + 7 = 343\)</span> (en decimal)</p>
+<p>Los sistemas numéricos son esenciales para representar y trabajar con números en diferentes contextos. En la informática, los sistemas binario y hexadecimal son especialmente importantes debido a su relación directa con la representación y manipulación de información en dispositivos electrónicos y digitales. El sistema octal, aunque menos común, también tiene aplicaciones específicas en la programación y la administración de sistemas. Conocer y comprender estos sistemas numéricos es esencial para cualquier persona que trabaje en tecnología de la información y la informática.</p>
+</section>
+</section>
+<section id="uso-de-sistemas-numéricos-en-las-computadoras-modernas" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="uso-de-sistemas-numéricos-en-las-computadoras-modernas"><span class="header-section-number">2.2</span> Uso de sistemas numéricos en las computadoras modernas</h2>
+<section id="representación-de-datos-en-binario" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="representación-de-datos-en-binario"><span class="header-section-number">2.2.1</span> Representación de datos en binario</h3>
+<p>Las computadoras modernas utilizan el sistema binario para representar y almacenar datos. Veamos algunos ejemplos concretos de cómo se representan diferentes tipos de datos en binario:</p>
+<ul>
+<li><p>Números enteros: Los enteros se representan utilizando bits en un formato llamado “complemento a dos”. Por ejemplo, el número decimal 13 se representa en binario como 1101, mientras que el número decimal -13 se representa como 11110011 (para un total de 8 bits o un byte).</p></li>
+<li><p>Números reales: Los números reales (números con decimales) se representan generalmente utilizando el estándar IEEE 754 de punto flotante. Por ejemplo, el número decimal 0.5 se representa como 00111111000000000000000000000000 en formato binario de punto flotante de precisión simple (32 bits).</p></li>
+<li><p>Caracteres: Los caracteres se representan utilizando códigos binarios, como ASCII o Unicode. Por ejemplo, el carácter “A” se representa en binario como 01000001 en ASCII (8 bits), mientras que el carácter “Ω” se representa en binario como 11000010 10101000 en Unicode (UTF-8, 16 bits).</p></li>
+</ul>
+</section>
+<section id="operaciones-lógicas-y-aritméticas-en-binario" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="operaciones-lógicas-y-aritméticas-en-binario"><span class="header-section-number">2.2.2</span> Operaciones lógicas y aritméticas en binario</h3>
+<p>Las computadoras realizan operaciones lógicas y aritméticas en binario utilizando circuitos electrónicos llamados “unidades aritmético-lógicas” (ALU). Algunos ejemplos de operaciones en binario incluyen:</p>
+<ul>
+<li><p>Suma: La suma binaria es similar a la suma decimal, pero solo se lleva a cabo si la suma de los bits es 2. Por ejemplo, 1101 (13 en decimal) + 1010 (10 en decimal) = 10111 (23 en decimal).</p></li>
+<li><p>Resta: La resta en binario se realiza utilizando el complemento a dos del número que se va a restar y luego sumando los números. Por ejemplo, para calcular 1101 (13 en decimal) - 1010 (10 en decimal), primero encontramos el complemento a dos de 1010, que es 0110, y luego sumamos: 1101 + 0110 = 10011 (3 en decimal).</p></li>
+<li><p>AND lógico: El AND lógico compara dos números bit a bit y devuelve un 1 si ambos bits son 1, y 0 en caso contrario. Por ejemplo, 1101 AND 1010 = 1000.</p></li>
+<li><p>OR lógico: El OR lógico compara dos números bit a bit y devuelve un 1 si al menos uno de los bits es 1, y 0 en caso contrario. Por ejemplo, 1101 OR 1010 = 1111.</p></li>
+</ul>
+</section>
+<section id="direcciones-de-memoria-y-registros" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="direcciones-de-memoria-y-registros"><span class="header-section-number">2.2.3</span> Direcciones de memoria y registros</h3>
+<p>Las direcciones de memoria y los registros son números binarios que se utilizan para acceder y almacenar datos en las computadoras. Por ejemplo:</p>
+<ul>
+<li><p>Direcciones de memoria: Cada ubicación de memoria en una computadora tiene una dirección única, que es un número binario. Por ejemplo, la dirección de memoria 0001001101010111 puede contener el valor binario 01101010.</p></li>
+<li><p>Registros: Los registros son pequeñas áreas de almacenamiento de alta velocidad en la CPU (unidad central de procesamiento) de una computadora. Los registros almacenan datos y direcciones de memoria utilizados en operaciones aritméticas y lógicas. Por ejemplo, un registro puede contener el valor binario 1101, que se utilizará en una operación de suma con otro valor almacenado en otro registro.</p></li>
+</ul>
+</section>
+<section id="transmisión-de-datos-y-protocolos-de-comunicación" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="transmisión-de-datos-y-protocolos-de-comunicación"><span class="header-section-number">2.2.4</span> Transmisión de datos y protocolos de comunicación</h3>
+<p>La transmisión de datos entre componentes de una computadora o entre computadoras y dispositivos externos se realiza utilizando protocolos de comunicación, que definen cómo se representan y transmiten los datos en forma binaria. Algunos ejemplos de protocolos de comunicación y cómo utilizan datos binarios incluyen:</p>
+<ul>
+<li><p>USB (Universal Serial Bus): El protocolo USB se utiliza para conectar dispositivos externos a una computadora, como teclados, ratones y unidades de almacenamiento. Los datos se transmiten en paquetes binarios a través de cables USB. Por ejemplo, un paquete USB puede contener una secuencia binaria como 0101010111010010, que representa una serie de datos o comandos transmitidos entre la computadora y el dispositivo.</p></li>
+<li><p>Ethernet: Ethernet es un protocolo de comunicación utilizado para redes de área local (LAN) que interconectan computadoras y dispositivos. Los datos se transmiten en tramas (frames) binarias que contienen información como direcciones de origen y destino, así como datos de carga útil. Por ejemplo, una trama Ethernet puede contener una secuencia binaria como 10101010101010101011010101010101, que representa una serie de datos o comandos transmitidos entre dispositivos en la red.</p></li>
+<li><p>Wi-Fi: Wi-Fi es un protocolo de comunicación inalámbrica utilizado para conectar dispositivos a redes de área local (LAN) y a Internet. Los datos se transmiten en paquetes binarios utilizando ondas de radio. Por ejemplo, un paquete Wi-Fi puede contener una secuencia binaria como 110101010101010110101011, que representa una serie de datos o comandos transmitidos entre dispositivos en la red.</p></li>
+</ul>
+</section>
+</section>
+<section id="ejemplos-detallados-de-sistemas-numéricos" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="ejemplos-detallados-de-sistemas-numéricos"><span class="header-section-number">2.3</span> Ejemplos detallados de sistemas numéricos</h2>
+<section id="conversión-entre-sistemas-numéricos" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="conversión-entre-sistemas-numéricos"><span class="header-section-number">2.3.1</span> Conversión entre sistemas numéricos</h3>
+<p>En esta sección, se presentan ejemplos detallados de la conversión entre diferentes sistemas numéricos, como decimal, binario, octal y hexadecimal.</p>
+<p>Ejemplo 1: Conversión de decimal a binario Número decimal: 25 Número binario: 11001</p>
+<p>Pasos:</p>
+<ul>
+<li>Dividir el número decimal entre 2 y anotar el residuo.</li>
+<li>Dividir el cociente obtenido entre 2 y anotar el residuo.</li>
+<li>Repetir el proceso hasta que el cociente sea 0.</li>
+<li>Los restos obtenidos en orden inverso forman el número binario equivalente.</li>
+</ul>
+<p>Ejemplo 2: Conversión de binario a decimal Número binario: 10110 Número decimal: 22</p>
+<p>Pasos:</p>
+<ul>
+<li>Multiplicar cada dígito binario por 2 elevado a la potencia de su posición (de derecha a izquierda, empezando desde 0).</li>
+<li>Sumar los resultados.</li>
+</ul>
+<p>Ejemplo 3: Conversión entre decimal, octal y hexadecimal Número decimal: 342 Número octal: 526 Número hexadecimal: 156</p>
+<p>Pasos:</p>
+<ul>
+<li>Para convertir de decimal a octal o hexadecimal, dividir el número decimal entre 8 u 16, respectivamente, y anotar los restos hasta que el cociente sea 0.</li>
+<li>Para convertir de octal o hexadecimal a decimal, multiplicar cada dígito por la base (8 u 16) elevada a la potencia de su posición.</li>
+</ul>
+</section>
+<section id="representación-de-números-enteros-y-reales-en-computadoras" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="representación-de-números-enteros-y-reales-en-computadoras"><span class="header-section-number">2.3.2</span> Representación de números enteros y reales en computadoras</h3>
+<p>En esta sección, se discuten ejemplos de representación de números enteros y reales en computadoras usando el sistema de punto flotante IEEE 754.</p>
+<p>Ejemplo 1: Representación de un número entero en complemento a 2 Número decimal: -15 Número binario en complemento a 2: 11110001</p>
+<p>Ejemplo 2: Representación de un número real en punto flotante IEEE 754 Número decimal: 0.15625 Representación en punto flotante de precisión simple: 00111110101000000000000000000000</p>
+</section>
+<section id="problemas-al-representar-números-decimales-o-reales-en-números-binarios" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="problemas-al-representar-números-decimales-o-reales-en-números-binarios"><span class="header-section-number">2.3.3</span> Problemas al representar números decimales o reales en números binarios</h3>
+<p>Existen problemas al representar números decimales o reales en números binarios en las computadoras. El problema principal surge debido a las limitaciones en la precisión y el rango de los números de punto flotante que se utilizan para representar los números reales en computadoras.</p>
+<p>Las computadoras representan números decimales o reales utilizando el formato de punto flotante, que está definido por el estándar IEEE 754. Este formato divide un número en tres componentes: signo, exponente y mantisa. La mantisa contiene los dígitos significativos del número, mientras que el exponente determina la posición del punto decimal.</p>
+<p>Sin embargo, hay ciertos números decimales que no se pueden representar exactamente en binario debido a la naturaleza finita de la representación de punto flotante. Por ejemplo, el número decimal 0.1 no se puede representar exactamente en binario. En su lugar, se representará como una aproximación que puede tener una diferencia muy pequeña con respecto al valor real. Esta diferencia, llamada error de redondeo, puede acumularse y causar problemas en cálculos que involucren muchas operaciones de punto flotante.</p>
+<p>Además, la representación de punto flotante tiene un rango y precisión limitados. Esto significa que números muy grandes o muy pequeños pueden causar problemas de desbordamiento (overflow) o subdesbordamiento (underflow). También puede haber pérdida de precisión cuando se realizan operaciones con números que tienen magnitudes muy diferentes.</p>
+<p>Para abordar estos problemas, los programadores y científicos de la computación deben ser conscientes de las limitaciones y posibles errores al trabajar con números decimales o reales en computadoras. También es posible utilizar bibliotecas matemáticas especializadas, como la biblioteca decimal en Python, que proporcionan una mayor precisión y control sobre la representación de números decimales en computadoras. Sin embargo, estas soluciones suelen ser más lentas que las operaciones de punto flotante nativas y pueden no ser adecuadas para todas las aplicaciones.</p>
+<p>Veamos un ejemplo en Python que demuestra el error de redondeo al tratar de representar el número decimal 0.1 en binario utilizando números de punto flotante:</p>
+<div class="cell" data-execution_count="1">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.2</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="fl">0.3</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>suma <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Resultado de la suma de a y b:"</span>, suma)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Resultado de la variable c:"</span>, c)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparamos si la suma de a y b es igual a c</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> suma <span class="op">==</span> c:</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"La suma de a y b es igual a c."</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"La suma de a y b NO es igual a c."</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Resultado de la suma de a y b: 0.30000000000000004
+Resultado de la variable c: 0.3
+La suma de a y b NO es igual a c.</code></pre>
+</div>
+</div>
+<p>Como puedes ver, la suma de a y b no es exactamente igual a c, aunque matemáticamente debería serlo. Esto se debe al error de redondeo en la representación binaria de los números decimales 0.1 y 0.2. El resultado de la suma es ligeramente mayor que 0.3, lo que provoca que la comparación falle.</p>
+<p>Para solucionar este problema, puedes utilizar la función <code>isclose()</code> del módulo math, que compara dos números de punto flotante con una tolerancia especificada:</p>
+<div class="cell" data-execution_count="2">
+<details>
+<summary>Código</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> math.isclose(suma, c):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"La suma de a y b es aproximadamente igual a c."</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"La suma de a y b NO es aproximadamente igual a c."</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>La suma de a y b es aproximadamente igual a c.</code></pre>
+</div>
+</div>
+</section>
+<section id="codificación-de-caracteres-e-imágenes" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="codificación-de-caracteres-e-imágenes"><span class="header-section-number">2.3.4</span> Codificación de caracteres e imágenes</h3>
+<p>En esta sección, se explican ejemplos de codificación de caracteres utilizando ASCII y UTF-8, así como la codificación de imágenes en formatos como BMP y JPEG.</p>
+<p>Ejemplo 1: Codificación ASCII Carácter: ‘A’ Código ASCII: 65 (en decimal), 41 (en hexadecimal)</p>
+<p>Ejemplo 2: Codificación UTF-8 Carácter: ‘ñ’ Código UTF-8: 0xC3 0xB1 (en hexadecimal)</p>
+<p>Ejemplo 3: Codificación de imágenes BMP Una imagen BMP de 2x2 píxeles en blanco y negro se puede representar en binario como: 00000000 00000000 11111111 11111111</p>
+</section>
+<section id="ejemplos-de-operaciones-aritméticas-y-lógicas-en-binario" class="level3" data-number="2.3.5">
+<h3 data-number="2.3.5" class="anchored" data-anchor-id="ejemplos-de-operaciones-aritméticas-y-lógicas-en-binario"><span class="header-section-number">2.3.5</span> Ejemplos de operaciones aritméticas y lógicas en binario</h3>
+<p>En esta sección, se presentan ejemplos de operaciones aritméticas y lógicas realizadas en números binarios.</p>
+<p>Ejemplo 1: Suma binaria 1101 (13 en decimal) +1011 (11 en decimal) 11000 (24 en decimal)</p>
+<p>Ejemplo 2: Resta binaria 1101 (13 en decimal) -1011 (11 en decimal) 0010 (2 en decimal)</p>
+<p>Ejemplo 3: Multiplicación binaria 1101 (13 en decimal)</p>
+<p>1011 (11 en decimal) 1101 1101 1101 10011111 (143 en decimal)</p>
+<p>Ejemplo 4: División binaria 1101 (13 en decimal) / 1011 (11 en decimal) Cociente: 0001 (1 en decimal) Residuo: 0010 (2 en decimal)</p>
+<p>Ejemplo 5: Operaciones lógicas en binario A: 1101 B: 1011</p>
+<p>AND: 1101 1011 1001</p>
+<p>OR: 1101 1011 1111</p>
+<p>XOR: 1101 1011 0110</p>
+<p>NOT (complemento a 1 de A): 0010</p>
+<p>Estos ejemplos ilustran cómo se realizan operaciones básicas en sistemas numéricos y cómo se representan y manipulan datos en computadoras modernas. Estos conceptos son fundamentales para comprender cómo funcionan las computadoras y cómo se ejecutan programas y algoritmos en ellas.</p>
+</section>
+</section>
+<section id="lenguajes-de-máquina-y-ensamblador" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="lenguajes-de-máquina-y-ensamblador"><span class="header-section-number">2.4</span> Lenguajes de máquina y ensamblador</h2>
+<section id="lenguaje-de-máquina-concepto-y-características" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="lenguaje-de-máquina-concepto-y-características"><span class="header-section-number">2.4.1</span> Lenguaje de máquina: concepto y características</h3>
+<p>El lenguaje de máquina es el lenguaje de bajo nivel más básico que una computadora es capaz de entender y ejecutar directamente. Está compuesto por una secuencia de instrucciones en forma de códigos binarios (ceros y unos) que representan operaciones específicas que el procesador de la computadora puede realizar. A continuación, se detallan las características del lenguaje de máquina y se proporcionan ejemplos concretos.</p>
+<section id="características-del-lenguaje-de-máquina" class="level4" data-number="2.4.1.1">
+<h4 data-number="2.4.1.1" class="anchored" data-anchor-id="características-del-lenguaje-de-máquina"><span class="header-section-number">2.4.1.1</span> Características del lenguaje de máquina:</h4>
+<ul>
+<li><p>Específico del hardware: Cada tipo de procesador tiene su propio conjunto de instrucciones y, por lo tanto, su propio lenguaje de máquina. Esto significa que un programa escrito en lenguaje de máquina para un tipo de procesador no funcionará en otro tipo de procesador sin modificaciones.</p></li>
+<li><p>Difícil de leer y escribir para los humanos: El lenguaje de máquina es una secuencia de códigos binarios, lo que lo hace difícil de leer, escribir y depurar para los programadores humanos en comparación con los lenguajes de alto nivel.</p></li>
+<li><p>Rápido y eficiente: Dado que el lenguaje de máquina es el lenguaje nativo del procesador, su ejecución es muy rápida y eficiente. No hay necesidad de compiladores o intérpretes para convertir el código en instrucciones ejecutables por la máquina.</p></li>
+</ul>
+</section>
+<section id="ejemplos-concretos-de-lenguaje-de-máquina" class="level4" data-number="2.4.1.2">
+<h4 data-number="2.4.1.2" class="anchored" data-anchor-id="ejemplos-concretos-de-lenguaje-de-máquina"><span class="header-section-number">2.4.1.2</span> Ejemplos concretos de lenguaje de máquina:</h4>
+<p>Supongamos que queremos realizar una operación simple, como sumar dos números almacenados en los registros R1 y R2 y guardar el resultado en el registro R3. A continuación, se muestra un ejemplo de cómo podría verse esta operación en lenguaje de máquina:</p>
+<pre><code>Instrucción en ensamblador: ADD R3, R1, R2
+Representación en lenguaje de máquina (hipotética): 110010010011</code></pre>
+<p>Cabe mencionar que la representación en lenguaje de máquina varía según la arquitectura del procesador. En el ejemplo anterior, se muestra una representación hipotética en formato binario.</p>
+<p>Otro ejemplo sería cargar un valor en un registro y luego moverlo a otro registro:</p>
+<pre><code>Instrucción en ensamblador: LOAD R1, 42
+Representación en lenguaje de máquina (hipotética): 101000010010101010
+
+Instrucción en ensamblador: MOVE R2, R1
+Representación en lenguaje de máquina (hipotética): 110100010001</code></pre>
+<p>En este caso, primero cargamos el valor 42 (en binario, 101010) en el registro R1 y luego movemos el contenido de R1 al registro R2. Nuevamente, las representaciones de lenguaje de máquina son hipotéticas y variarán según la arquitectura del procesador.</p>
+<p>Estos ejemplos ilustran cómo el lenguaje de máquina es extremadamente básico y difícil de leer y escribir para los humanos. A pesar de esto, es la base sobre la cual se construyen todos los programas y aplicaciones que utilizamos a diario.</p>
+</section>
+</section>
+<section id="lenguaje-ensamblador-concepto-y-características" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="lenguaje-ensamblador-concepto-y-características"><span class="header-section-number">2.4.2</span> Lenguaje ensamblador: concepto y características</h3>
+<p>El lenguaje ensamblador es un lenguaje de programación de bajo nivel que utiliza mnemotécnicos (abreviaturas) para representar instrucciones y datos en lugar de códigos binarios. Un programa en lenguaje ensamblador es más fácil de leer y escribir para los humanos que el lenguaje de máquina, pero aún así está muy cerca del hardware y requiere un conocimiento profundo de la arquitectura del procesador. A continuación, se detallan las características del lenguaje ensamblador y se proporcionan ejemplos concretos.</p>
+<p>Características del lenguaje ensamblador:</p>
+<ul>
+<li><p>Mnemotécnicos: El lenguaje ensamblador utiliza mnemotécnicos para representar instrucciones y registros, lo que facilita la lectura y escritura por parte de los humanos en comparación con los códigos binarios del lenguaje de máquina.</p></li>
+<li><p>Específico del hardware: Al igual que el lenguaje de máquina, el lenguaje ensamblador es específico para cada tipo de procesador y su conjunto de instrucciones. Un programa en lenguaje ensamblador para un procesador no funcionará en otro tipo de procesador sin modificaciones.</p></li>
+<li><p>Necesita un ensamblador: Los programas escritos en lenguaje ensamblador deben ser convertidos en lenguaje de máquina utilizando un programa llamado ensamblador. El ensamblador convierte las instrucciones mnemotécnicas en sus equivalentes binarios.</p></li>
+</ul>
+<p>A continuación, se presentan ejemplos de programas simples en lenguaje ensamblador. Tenga en cuenta que estos ejemplos son genéricos y pueden variar según la arquitectura del procesador y el conjunto de instrucciones.</p>
+<p>Ejemplo 1: Programa para sumar dos números</p>
+<pre><code>; Programa en ensamblador para sumar dos números
+
+; Datos
+num1 DW 5      ; Define el primer número (5)
+num2 DW 7      ; Define el segundo número (7)
+resultado DW 0 ; Define una variable para almacenar el resultado
+
+; Código
+mov ax, num1   ; Carga el primer número en el registro AX
+mov bx, num2   ; Carga el segundo número en el registro BX
+add ax, bx     ; Suma los números en AX y BX y guarda el resultado en AX
+mov resultado, ax ; Guarda el resultado en la variable "resultado"
+
+; Fin del programa</code></pre>
+<p>Ejemplo 2: Programa para calcular el factorial de un número</p>
+<pre><code>; Programa en ensamblador para calcular el factorial de un número
+
+; Datos
+num DW 5       ; Define el número (5)
+factorial DW 1 ; Define una variable para almacenar el resultado
+
+; Código
+mov cx, num    ; Carga el número en el registro CX
+
+loop_start:    ; Etiqueta del inicio del bucle
+mul cx         ; Multiplica el valor en AX por CX y guarda el resultado en AX
+dec cx         ; Decrementa el valor en CX en 1
+jnz loop_start ; Salta al inicio del bucle si CX no es 0
+
+mov factorial, ax ; Guarda el resultado en la variable "factorial"
+
+; Fin del programa
+</code></pre>
+</section>
+<section id="relación-entre-lenguajes-de-máquina-y-ensamblador" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="relación-entre-lenguajes-de-máquina-y-ensamblador"><span class="header-section-number">2.4.3</span> Relación entre lenguajes de máquina y ensamblador</h3>
+<p>El lenguaje ensamblador y el lenguaje máquina están estrechamente relacionados, ya que ambos son lenguajes de programación de bajo nivel utilizados para interactuar directamente con el hardware del procesador. El lenguaje ensamblador es una representación más legible del lenguaje máquina, utilizando mnemotécnicos en lugar de códigos binarios para representar instrucciones y datos. A continuación, se presentan ejemplos que ilustran la relación entre el lenguaje ensamblador y el lenguaje máquina.</p>
+<p>Ejemplo 1: Sumar dos números</p>
+<p>Lenguaje ensamblador:</p>
+<pre><code>mov ax, 5
+mov bx, 7
+add ax, bx</code></pre>
+<p>Lenguaje de máquina (representación hexadecimal):</p>
+<pre><code>B8 05 00
+BB 07 00
+01 D8</code></pre>
+<p>En este ejemplo, el programa en lenguaje ensamblador utiliza mnemotécnicos para cargar los valores 5 y 7 en los registros AX y BX, y luego suma estos valores. El programa equivalente en lenguaje de máquina utiliza códigos binarios (representados en hexadecimal) para realizar la misma tarea. El ensamblador es responsable de convertir el programa en lenguaje ensamblador a lenguaje de máquina.</p>
+</section>
+<section id="ejemplo-end-to-end" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="ejemplo-end-to-end"><span class="header-section-number">2.4.4</span> Ejemplo end-to-end</h3>
+<p>Aunque aun no hemos hablado de los lenguajes de programación de alto nivel, vamos a ver un ejemplo de inicio a fin de como sería todo el proceso de creación de un algoritmo para resolver un problema en un lenguaje de alto nivel como C, cómo este código debe ser compilado a ensamblador y después a lenguaje máquina para finalmente ser ejecutado por el ordenador.</p>
+<p>A continuación, se presenta el proceso de creación, compilación y ejecución de un programa simple en C, incluyendo la conversión a código ensamblador y código máquina para una arquitectura i386 de 64 bits.</p>
+<ul>
+<li>Crear el archivo fuente en C:</li>
+</ul>
+<p>Escribamos un programa simple en C que sume dos números y muestre el resultado en la consola. Guarde este código en un archivo llamado <code>suma.c</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> a <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> b <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> suma <span class="op">=</span> a <span class="op">+</span> b<span class="op">;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"La suma de </span><span class="sc">%d</span><span class="st"> y </span><span class="sc">%d</span><span class="st"> es </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> a<span class="op">,</span> b<span class="op">,</span> suma<span class="op">);</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Generar el código ensamblador: Antes de compilar el programa en C a código máquina, podemos convertirlo en código ensamblador utilizando el compilador GCC. Esto nos permite ver las instrucciones en lenguaje ensamblador que corresponden a nuestro programa en C.</li>
+</ul>
+<p>Ejecute el siguiente comando en la terminal para generar el archivo de código ensamblador suma.s:</p>
+<pre class="bsh"><code>gcc -S -masm=intel -m64 suma.c -o suma.s</code></pre>
+<p>El archivo <code>suma.s</code> generado puede verse así:</p>
+<pre class="assembly"><code>    .file   "suma.c"
+    .intel_syntax noprefix
+    .section    .rodata
+.LC0:
+    .string "La suma de %d y %d es %d\n"
+    .text
+    .globl  main
+    .type   main, @function
+main:
+    push    rbp
+    mov     rbp, rsp
+    sub     rsp, 16
+    mov     DWORD PTR [rbp-4], 5
+    mov     DWORD PTR [rbp-8], 7
+    mov     edx, DWORD PTR [rbp-4]
+    mov     eax, DWORD PTR [rbp-8]
+    add     eax, edx
+    mov     DWORD PTR [rbp-12], eax
+    mov     eax, DWORD PTR [rbp-12]
+    mov     edx, DWORD PTR [rbp-8]
+    mov     ecx, DWORD PTR [rbp-4]
+    mov     esi, eax
+    mov     edi, OFFSET FLAT:.LC0
+    mov     eax, 0
+    call    printf
+    mov     eax, 0
+    leave
+    ret</code></pre>
+<ul>
+<li>Compilar el código en C a código máquina:</li>
+</ul>
+<p>Ahora que hemos generado el código ensamblador, podemos compilar nuestro programa en C a código máquina. Utilice el siguiente comando para compilar el programa en un archivo ejecutable llamado suma:</p>
+<pre class="bsh"><code>gcc -m64 suma.c -o suma</code></pre>
+<p>La salida puede verse así:</p>
+<pre class="assembly"><code>0000000000001139 &lt;main&gt;:
+    1139:   55                      push   rbp
+    113a:   48 89 e5                mov    rbp,rsp
+    113d:   48 83 ec 10             sub    rsp,0x10
+    1141:   c7 45 fc 05 00 00 00    mov    DWORD PTR [rbp-0x4],0x5
+    1148:   c7 45 f8 07 00 00 00    mov    DWORD PTR [rbp-0x8],0x7
+    114f:   8b 55 fc                mov    edx,DWORD PTR [rbp-0x4]
+    1152:   8b 45 f8                mov    eax,DWORD PTR [rbp-0x8]
+    1155:   01 d0                   add    eax,edx
+    1157:   89 45 f4                mov    DWORD PTR [rbp-0xc],eax
+    115a:   8b 45 f4                mov    eax,DWORD PTR [rbp-0xc]
+    115d:   8b 55 f8                mov    edx,DWORD PTR [rbp-0x8]
+    1160:   8b 4d fc                mov    ecx,DWORD PTR [rbp-0x4]
+    1163:   89 c6                   mov    esi,eax
+    1165:   48 8d 3d 94 0e 00 00    lea    rdi,[rip+0xe94]        # 2000 &lt;_IO_stdin_used+0x20&gt;
+    116c:   b8 00 00 00 00          mov    eax,0x0
+    1171:   e8 aa fe ff ff          call   1020 &lt;printf@plt&gt;
+    1176:   b8 00 00 00 00          mov    eax,0x0
+    117b:   c9                      leave  
+    117c:   c3                      ret    </code></pre>
+<p>Esta salida muestra el código máquina en notación hexadecimal (por ejemplo, <code>55, 48 89 e5, 48 83 ec 10</code>, etc.) a la izquierda y las correspondientes instrucciones en lenguaje ensamblador a la derecha. Estos códigos hexadecimales representan las instrucciones binarias que el procesador x86-64 ejecuta.</p>
+<p>Tenga en cuenta que la salida específica puede variar dependiendo de la versión del compilador y la plataforma en la que se ejecute.</p>
+<ul>
+<li>Ejecutar el programa:</li>
+</ul>
+<p>Finalmente, ejecute el programa compilado utilizando el siguiente comando:</p>
+<pre class="bsh"><code>./suma</code></pre>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./intro/intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la programación y al lenguaje Python</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./lenguajes.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lenguajes de alto nivel y Python</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

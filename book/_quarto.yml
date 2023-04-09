@@ -21,9 +21,9 @@ book:
   sharing: [twitter, facebook]
   chapters:
     - index.qmd
-    - part: "Introducción a la Programación"
-      chapters:
-        - intro/intro.qmd
+    - intro/intro.qmd
+    - sistemas_numericos.qmd
+    - lenguajes.qmd
     - conclusions.qmd
 
 highlight-style: pygments

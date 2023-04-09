@@ -20,18 +20,66 @@ Dicho esto, hablemos un poco de la estructura de este libro y del lenguaje de pr
 
 ## Estructura del libro
 
-**Introducción a la Programación con Python** está dividido en n capítulos:
+**Introducción a la Programación con Python** está dividido en 9 capítulos:
 
-1. Introducción a la Programación
-    + 1.1. Historía de la Computación
-    + 1.2. Qué es la Programación
-    + 1.3. Lenguajes de Programación
-    + 1.4. Entorno de Desarrollo Integrado (Integrated Development Environment 'IDE')
+1. Introducción a la programación y al lenguaje Python
 
-2. Lenguaje Python
-    + 2.1. Instalación del ambiente de desarrollo ([Anaconda](https://www.anaconda.com/))
-    + 2.2. Ambientes Virtuales en Python
-    + 2.3. 
+    + 1.1. Concepto de programación
+    + 1.2. Historia de la programación
+    + 1.3. Lenguaje Python: características y ventajas
+    + 1.4. Instalación del ambiente de desarrollo ([Anaconda](https://www.anaconda.com/))
+    + 1.5. Ambientes Virtuales en Python
+    
+2. Sistemas numéricos y representación de datos
+
+    + 2.1. Sistema binario
+    + 2.2. Sistema hexadecimal
+    + 2.3. Conversión entre sistemas numéricos
+    + 2.4. Representación de números enteros y reales en computadoras
+
+3. Lenguaje máquina y lenguaje ensamblador
+
+    + 3.1. Concepto de lenguaje máquina
+    + 3.2. Estructura de una instrucción
+    + 3.3. Lenguaje ensamblador: concepto y uso
+
+4. Lenguajes de alto nivel y Python
+
+    + 4.1. Características de los lenguajes de alto nivel
+    + 4.2. Introducción a Python: sintaxis básica, variables y tipos de datos
+
+5. Herramientas de control de flujo
+
+    + 5.1. Condicionales: if, elif, else
+    + 5.2. Bucles: for y while
+    + 5.3. Funciones y parámetros
+
+6. Estructuras de datos
+
+    + 6.1. Listas y tuplas
+    + 6.2. Diccionarios y conjuntos
+    + 6.3. Operaciones comunes en estructuras de datos
+
+7. Algoritmos de ordenamiento y búsqueda
+
+    + 7.1. Algoritmo de ordenamiento por selección
+    + 7.2. Algoritmo de ordenamiento por inserción
+    + 7.3. Algoritmo de ordenamiento por burbuja
+    + 7.4. Algoritmo de búsqueda secuencial
+    + 7.5. Algoritmo de búsqueda binaria
+
+8. Introducción a la complejidad algorítmica
+
+    + 8.1. Notación Big O
+    + 8.2. Análisis de tiempo y espacio
+    + 8.3. Comparación de la eficiencia de algoritmos
+
+9. Introducción a las funciones recursivas
+
+    + 9.1. Concepto de recursión
+    + 9.2. Casos base y recursivos
+    + 9.3. Ejemplos de funciones recursivas en Python
+
 
 ## ¿Por qué Python?
 

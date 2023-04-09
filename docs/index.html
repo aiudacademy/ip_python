@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.3.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -128,19 +99,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <meta name="twitter:title" content="Introducción a la Programación">
-<meta name="twitter:description" content="**con Python**">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="con Python">
+<meta name="twitter:image" content="logo_new.png">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Introducción a la Programación</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introducción</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -148,80 +125,90 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introducción a la Programación</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/aiudacademy/ip_python/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./Introducción-a-la-Programación.pdf">
-            <i class="bi bi-bi-file-pdf pe-1"></i>
-          Download PDF
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="./Introducción-a-la-Programación.epub">
-            <i class="bi bi-bi-journal pe-1"></i>
-          Download ePub
-          </a>
-        </li>
-    </ul>
-    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-    </ul>
+    <a href="https://github.com/aiudacademy/ip_python/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Introducción-a-la-Programación.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Introducción-a-la-Programación.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Buscar"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Introducción</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Introducción</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Introducción a la Programación</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro/intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la Programación</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./conclusions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Conclusion</span></a>
+  <a href="./intro/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la programación y al lenguaje Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sistemas_numericos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sistemas numéricos, lenguajes de máquina y ensamblador</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lenguajes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lenguajes de alto nivel y Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -243,7 +230,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Introducción a la Programación</h1>
+<h1 class="title">Introducción a la Programación</h1>
 <p class="subtitle lead"><strong>con Python</strong></p>
 </div>
 
@@ -253,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <div class="quarto-title-meta-heading">Afiliación</div>
   
     <div class="quarto-title-meta-contents">
-    <a href="https://www.linkedin.com/in/nmlemus/">Noel Moreno Lemus, Ph.D.</a> 
+    <p class="author"><a href="https://www.linkedin.com/in/nmlemus/">Noel Moreno Lemus, Ph.D.</a> </p>
   </div>
     <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -276,14 +263,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <section id="introducción" class="level1 unnumbered">
-<p><img src="logo_new.png" title="Introducción a la Programación" class="quarto-cover-image img-fluid"></p><h1 class="unnumbered">Introducción</h1>
+<h1 class="unnumbered">Introducción</h1><p><img src="logo_new.png" title="Introducción a la Programación" class="quarto-cover-image img-fluid"></p>
 <p><strong>Introducción a la Programación <em>con Python</em></strong> es un libro diseñado para aquellas personas que desean iniciarse en el mundo de la programación desde cero. En este libro te guiaremos a través de los conceptos básicos de la programación y te mostraremos cómo aplicarlos para crear programas simples y útiles.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Nota
 </div>
 </div>
@@ -303,20 +290,65 @@ Nota
 </section>
 <section id="estructura-del-libro" class="level2">
 <h2 class="anchored" data-anchor-id="estructura-del-libro">Estructura del libro</h2>
-<p><strong>Introducción a la Programación con Python</strong> está dividido en n capítulos:</p>
+<p><strong>Introducción a la Programación con Python</strong> está dividido en 9 capítulos:</p>
 <ol type="1">
-<li>Introducción a la Programación
+<li><p>Introducción a la programación y al lenguaje Python</p>
 <ul>
-<li>1.1. Historía de la Computación</li>
-<li>1.2. Qué es la Programación</li>
-<li>1.3. Lenguajes de Programación</li>
-<li>1.4. Entorno de Desarrollo Integrado (Integrated Development Environment ‘IDE’)</li>
+<li>1.1. Concepto de programación</li>
+<li>1.2. Historia de la programación</li>
+<li>1.3. Lenguaje Python: características y ventajas</li>
+<li>1.4. Instalación del ambiente de desarrollo (<a href="https://www.anaconda.com/">Anaconda</a>)</li>
+<li>1.5. Ambientes Virtuales en Python</li>
 </ul></li>
-<li>Lenguaje Python
+<li><p>Sistemas numéricos y representación de datos</p>
 <ul>
-<li>2.1. Instalación del ambiente de desarrollo (<a href="https://www.anaconda.com/">Anaconda</a>)</li>
-<li>2.2. Ambientes Virtuales en Python</li>
-<li>2.3.</li>
+<li>2.1. Sistema binario</li>
+<li>2.2. Sistema hexadecimal</li>
+<li>2.3. Conversión entre sistemas numéricos</li>
+<li>2.4. Representación de números enteros y reales en computadoras</li>
+</ul></li>
+<li><p>Lenguaje máquina y lenguaje ensamblador</p>
+<ul>
+<li>3.1. Concepto de lenguaje máquina</li>
+<li>3.2. Estructura de una instrucción</li>
+<li>3.3. Lenguaje ensamblador: concepto y uso</li>
+</ul></li>
+<li><p>Lenguajes de alto nivel y Python</p>
+<ul>
+<li>4.1. Características de los lenguajes de alto nivel</li>
+<li>4.2. Introducción a Python: sintaxis básica, variables y tipos de datos</li>
+</ul></li>
+<li><p>Herramientas de control de flujo</p>
+<ul>
+<li>5.1. Condicionales: if, elif, else</li>
+<li>5.2. Bucles: for y while</li>
+<li>5.3. Funciones y parámetros</li>
+</ul></li>
+<li><p>Estructuras de datos</p>
+<ul>
+<li>6.1. Listas y tuplas</li>
+<li>6.2. Diccionarios y conjuntos</li>
+<li>6.3. Operaciones comunes en estructuras de datos</li>
+</ul></li>
+<li><p>Algoritmos de ordenamiento y búsqueda</p>
+<ul>
+<li>7.1. Algoritmo de ordenamiento por selección</li>
+<li>7.2. Algoritmo de ordenamiento por inserción</li>
+<li>7.3. Algoritmo de ordenamiento por burbuja</li>
+<li>7.4. Algoritmo de búsqueda secuencial</li>
+<li>7.5. Algoritmo de búsqueda binaria</li>
+</ul></li>
+<li><p>Introducción a la complejidad algorítmica</p>
+<ul>
+<li>8.1. Notación Big O</li>
+<li>8.2. Análisis de tiempo y espacio</li>
+<li>8.3. Comparación de la eficiencia de algoritmos</li>
+</ul></li>
+<li><p>Introducción a las funciones recursivas</p>
+<ul>
+<li>9.1. Concepto de recursión</li>
+<li>9.2. Casos base y recursivos</li>
+<li>9.3. Ejemplos de funciones recursivas en Python</li>
 </ul></li>
 </ol>
 </section>
@@ -329,12 +361,12 @@ Nota
 <p></p><figcaption class="figure-caption">Python ha ido ganando popularidad en los últimos años (no ha parado de crecer desde el 2018), llegando a desplazar en los últimos meses a lenguajes como Java y C.</figcaption><p></p>
 </figure>
 </div>
-<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Work in Progress
 </div>
 </div>
@@ -343,12 +375,12 @@ Work in Progress
 </div>
 </div>
 <p>Machine learning is a rapidly growing field that enables computers to learn from data, without being explicitly programmed. The goal of machine learning is to build models that can make predictions or take actions based on input data, and improve their performance over time through experience.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Nota
 </div>
 </div>
@@ -356,12 +388,12 @@ Nota
 <p>Note that there are five types of callouts, including: <code>note</code>, <code>warning</code>, <code>important</code>, <code>tip</code>, and <code>caution</code>.</p>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Tip With Caption
 </div>
 </div>
@@ -369,12 +401,12 @@ Tip With Caption
 <p>This is an example of a callout with a caption.</p>
 </div>
 </div>
-<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Expand To Learn About Collapse
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -407,16 +439,16 @@ Expand To Learn About Collapse
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"scikit-learn version: </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(sklearn.__version__))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Python version: 3.9.13 (main, Aug 25 2022, 23:26:10) 
+<pre><code>Python version: 3.9.16 (main, Mar  8 2023, 14:00:05) 
 [GCC 11.2.0]
-pandas version: 1.5.3
-matplotlib version: 3.6.3
-NumPy version: 1.23.5
-SciPy version: 1.10.0
-IPython version: 8.9.0</code></pre>
+pandas version: 2.0.0
+matplotlib version: 3.7.1
+NumPy version: 1.24.2
+SciPy version: 1.10.1
+IPython version: 8.12.0</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>scikit-learn version: 1.2.1</code></pre>
+<pre><code>scikit-learn version: 1.2.2</code></pre>
 </div>
 </div>
 
@@ -452,9 +484,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -519,6 +565,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -563,7 +695,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./intro/intro.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la Programación</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción a la programación y al lenguaje Python</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
